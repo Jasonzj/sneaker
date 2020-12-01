@@ -66,7 +66,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && yarn test --watchAll=false"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
@@ -76,6 +76,9 @@
     ],
     "src/**/*.css": [
       "prettier --write"
+    ],
+    "src/**/*.test.{js,jsx,ts,tsx}": [
+      "yarn test --watchAll=false"
     ]
   },
   "proxy": "http://localhost:4455"
