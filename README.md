@@ -1,6 +1,6 @@
 # React Sneaker
 
-一个基于 React、Typescript 的球鞋比价网站，对比鞋子在 dewu，stockx，goat 三个网站的价格。搜索功能支持三个网站的搜索接口，通过搜索 sku 或者关键字对比鞋子价格
+一个基于 React、Typescript 构建的球鞋比价网站，对比鞋子在 dewu, stockx, goat 三个网站的价格
 
 ## API
 
@@ -20,7 +20,7 @@
 - [x] Dewu Trending/Goat Trending
 - [x] 搜索功能
   - [x] 支持 dewu, goat, stockx, db 搜索接口
-  - [x] 搜索建议支持 dewu,stockx 搜索接口
+  - [x] 搜索建议支持 dewu, stockx 搜索接口
 - [x] 鞋子详情
   - [x] 各尺码价格比较, 支持 dewu, goat, stockx
   - [x] 最低价格显示
