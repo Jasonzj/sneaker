@@ -34,4 +34,4 @@ yarn start
 
 ## 截图
 
-<img src="https://github.com/Jasonzj/sneaker/blob/main/Screenshots/demo.gif" width=800 align=left>
+<img src="https://github.com/Jasonzj/sneaker/blob/main/screenshots/demo.gif" width=800 align=left>
