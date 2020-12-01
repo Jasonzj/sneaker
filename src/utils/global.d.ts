@@ -1,21 +1,9 @@
 import { AxiosResponse, CancelToken } from 'axios'
 
-export type AnyNumberObjectType = {
-  [propname: string]: number
-}
-
-export type AnyStringObjectType = {
-  [propname: string]: string
-}
-
-export type AnyObjectType = {
-  [propname: string]: unknown
-}
-
 export type SizePricesType = {
-  dewu: AnyNumberObjectType
-  stockx: AnyNumberObjectType
-  goat: AnyNumberObjectType
+  dewu: Record<string, number>
+  stockx: Record<string, number>
+  goat: Record<string, number>
 }
 
 export type ShoeDetailType = {

@@ -10,7 +10,7 @@ import SearchSuggestion from '../SearchSuggestion'
 // type
 import { MathchType } from './type'
 import { SearchSuggestionsLoader } from '../../utils/api'
-import { SearchSuggestionHitsType, AnyStringObjectType, ApiLoaderType } from '../../utils/global'
+import { SearchSuggestionHitsType, ApiLoaderType } from '../../utils/global'
 
 // css
 import style from './searchBar.module.css'
@@ -33,7 +33,7 @@ const SearchBar: React.FC = () => {
     [searchKeyWord, suggestionValue],
   )
 
-  const { response: hits } = useRequire<SearchSuggestionHitsType, AnyStringObjectType>({
+  const { response: hits } = useRequire<SearchSuggestionHitsType, Record<string, string>>({
     apiLoader: apiSearchSuggestionsLoader,
     defaultData: [],
     debounce: true,

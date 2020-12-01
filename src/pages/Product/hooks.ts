@@ -14,13 +14,7 @@ import {
 } from '../../utils/api'
 
 // type
-import {
-  AnyStringObjectType,
-  ApiLoaderType,
-  ProductDetailReqType,
-  ShoeDetailsType,
-  ShoeDetailType,
-} from '../../utils/global'
+import { ApiLoaderType, ProductDetailReqType, ShoeDetailsType, ShoeDetailType } from '../../utils/global'
 import { useFollowingReturnType, useShoeListsParamsType, useShoeListsReturnType } from './type'
 
 let curIndex = 0
@@ -45,7 +39,7 @@ export const useShoeLists = ({
   )
   const { response: shoeLists, setResponse: setShoeLists, error, loading, isDBSearch } = useRequire<
     ShoeDetailsType,
-    AnyStringObjectType
+    Record<string, string>
   >({
     apiLoader: apiProductListsLoader,
     defaultData: [],
@@ -107,7 +101,7 @@ export const useShoeLists = ({
 export const useFollowing = (): useFollowingReturnType => {
   const { response: followingLists, setResponse: setFollowingLists } = useRequire<
     string[],
-    AnyStringObjectType
+    Record<string, string>
   >({
     apiLoader: FollowingListsLoader,
     notification: false,

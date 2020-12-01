@@ -1,5 +1,3 @@
-import { AnyObjectType } from './global'
-
 /**
  * 格式化时间戳
  *
@@ -14,10 +12,10 @@ export const formatTime = (time: number): string => {
 /**
  * 是否为空对象
  *
- * @param {(AnyObjectType | undefined)} o
+ * @param {(Record<string, unknown> | undefined)} o
  * @returns {boolean}
  */
-export const isEmptyObject = (o: AnyObjectType | undefined): boolean => {
+export const isEmptyObject = (o: Record<string, unknown> | undefined): boolean => {
   if (o === undefined) return true
   return Object.keys(o).length === 0
 }
