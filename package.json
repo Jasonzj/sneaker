@@ -66,14 +66,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npx lint-staged"
+      "pre-commit": "lint-staged && yarn test --watchAll=false"
     }
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
       "prettier --write",
-      "eslint --fix",
-      "yarn test --watchAll=false"
+      "eslint --fix"
     ],
     "src/**/*.css": [
       "prettier --write"
