@@ -1,0 +1,53 @@
+.suggestionUl {
+  padding: 0 40px;
+}
+
+.suggestionUl li {
+  border-bottom: 1px solid #eeeeee;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.suggestionUl li img {
+  width: 140px;
+}
+
+.suggestionInfo {
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.suggestionInfo p {
+  line-height: 35px;
+  max-height: 70px;
+  overflow: hidden;
+  margin: 0;
+}
+
+.shoeName {
+  font-size: 20px;
+  font-family: BebasNeue;
+  font-weight: 700;
+}
+
+.stockx {
+  display: flex;
+  height: 110px;
+  align-items: center;
+  overflow: hidden;
+}
+
+.dewu p {
+  line-height: 15px;
+}
+
+.stockx:hover {
+  border-bottom: 6px solid #e74c3c;
+}
+
+.dewu:hover {
+  border-bottom: 3px solid #e74c3c;
+  color: #e74c3c;
+  font-weight: bold;
+}

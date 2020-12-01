@@ -1,0 +1,35 @@
+.button {
+  position: relative;
+  display: block;
+  margin-top: 20px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  line-height: 30px;
+  text-align: center;
+  background-color: #49a9ee;
+  border: 1px solid transparent;
+}
+
+.button:disabled :before {
+  pointer-events: none;
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  border-radius: inherit;
+  background-color: hsla(0, 0%, 100%, 0.35);
+}
+
+.button:hover {
+  background: #2fa8ff;
+}
+
+.content {
+  display: block;
+  height: 30px;
+  width: 100%;
+}

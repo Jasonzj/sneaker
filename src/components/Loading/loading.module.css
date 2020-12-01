@@ -1,0 +1,65 @@
+.loader {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 998;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  text-align: center;
+}
+.loader.fullScreen {
+  position: fixed;
+}
+.loader .warpper {
+  width: 100px;
+  height: 100px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.loader .inner {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto;
+  text-indent: -12345px;
+  border-top: 4px solid rgba(0, 0, 0, 0.08);
+  border-right: 4px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 4px solid rgba(0, 0, 0, 0.08);
+  border-left: 4px solid rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  z-index: 999;
+}
+.loader .inner :local {
+  animation: spinner 600ms infinite linear;
+}
+.loader .text {
+  width: 100px;
+  height: 20px;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 4px;
+  color: #000;
+}
+.loader.hidden {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.2s ease 0.1s, display 0.1s ease 1.5s;
+}
+
+.backGround {
+  background-color: #ffffff;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

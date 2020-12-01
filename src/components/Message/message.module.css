@@ -1,0 +1,28 @@
+.container {
+  font-size: 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 100001;
+}
+
+.message {
+  pointer-events: none;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.content {
+  display: inline-flex;
+  padding: 15px 20px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px -2px #95a5a6;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}

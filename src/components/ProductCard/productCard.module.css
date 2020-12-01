@@ -1,0 +1,57 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+  height: 260px;
+  padding: 20px;
+  border-radius: 15px;
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  box-shadow: 2px 2px 14px -2px #95a5a6;
+}
+
+.card img {
+  width: 190px;
+  height: 120px;
+}
+
+.shoeName {
+  font-size: 18px;
+  height: 50px;
+  line-height: 25px;
+  color: #34495e;
+  overflow: hidden;
+  /* text-transform: uppercase; */
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 30px;
+  text-align: center;
+  color: #2c3e50;
+}
+
+/* .price img {
+  width: 30%;
+  height: auto;
+  opacity: .65;
+} */
+
+.brand {
+  width: 100px;
+  line-height: 25px;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 20px;
+  background: #e74c3c;
+  transition: all 0.2s;
+}

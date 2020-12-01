@@ -1,0 +1,44 @@
+/* message */
+.message-ani-enter {
+  opacity: 0;
+  transform: translate(0, -100%);
+}
+
+.message-ani-enter-active {
+  opacity: 1;
+  transform: translate(0);
+  transition: transform 200ms ease-out, opacity 200ms ease-in-out;
+}
+
+.message-ani-exit {
+  opacity: 1;
+}
+
+.message-ani-exit-active {
+  opacity: 0;
+  transform: translate(0, -100%);
+  transition: transform 300ms linear 100ms, opacity 300ms ease-in-out;
+}
+
+/* sign_in, sign_up */
+.sign-ani-enter {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+.sign-ani-enter-active {
+  opacity: 1;
+  transform: translateX(0%);
+}
+.sign-ani-exit {
+  opacity: 1;
+  transform: translateX(0%);
+}
+.sign-ani-exit-active {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.sign-ani-enter-active,
+.sign-ani-exit-active {
+  transition: opacity 500ms, transform 500ms;
+}

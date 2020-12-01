@@ -1,0 +1,56 @@
+.main {
+  width: 40px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #e74c3c;
+  border-radius: 5px;
+}
+
+.avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.menu {
+  width: 100px;
+  background: #ffffff;
+  border-radius: 3px;
+  box-shadow: 0 1px 5px #ccc;
+  border: 1px solid #ccc;
+}
+
+.menu li {
+  font-size: 14px;
+  padding: 7px 10px;
+  cursor: pointer;
+  color: #666666;
+  transition: all 0.8s;
+  text-align: center;
+}
+
+.menu li a {
+  color: #666666;
+}
+
+.menu li:hover,
+.menu li a:hover {
+  color: #1890ff;
+}
+
+.menu .name {
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
+  cursor: auto;
+}

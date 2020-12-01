@@ -1,0 +1,64 @@
+.searchBox {
+  position: relative;
+  width: 60%;
+  z-index: 1000;
+}
+
+.searchInput {
+  width: 95%;
+  padding: 20px 2.5%;
+  line-height: 25px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: none;
+}
+
+.searchInput:focus {
+  border: none;
+  box-shadow: 2px 2px 14px -2px #333333;
+}
+
+.searchButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 65px;
+  width: 80px;
+  border: 0;
+  background: none;
+  background-image: url(../../images/search.png);
+  background-size: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.2s;
+}
+
+.searchButton:hover {
+  background-size: 28px;
+}
+
+.selectBox {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.selectBox span {
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+.searchSuggestion {
+  position: absolute;
+  z-index: 1000;
+  top: 65px;
+  width: 100%;
+  background: #ffffff;
+  max-height: 600px;
+  overflow-y: scroll;
+  border-radius: 10px;
+  box-shadow: 0 4px 3px 0 hsla(0, 0%, 72.2%, 0.6);
+}

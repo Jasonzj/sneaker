@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should take a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="loader"
+    style="background-color: rgb(255, 255, 255);"
+    title="loader"
+  >
+    <div
+      class="warpper"
+    >
+      <div
+        class="inner"
+      />
+      <div
+        class="text"
+      >
+        LOADING
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

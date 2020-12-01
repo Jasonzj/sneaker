@@ -1,0 +1,166 @@
+.detail {
+  position: fixed;
+  width: 1000px;
+  height: 800px;
+  top: 50%;
+  left: 50%;
+  right: 0;
+  bottom: 0;
+  z-index: 100000;
+  background: #ffffff;
+  border-radius: 15px;
+  transform: translate(-50%, -50%);
+}
+
+.fullScreen {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99999;
+  background-color: rgba(2, 2, 2, 0.5);
+}
+
+.container {
+  height: 758px;
+  overflow-y: scroll;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  height: 5%;
+  width: 100%;
+  border-bottom: 2px solid #efefef;
+}
+
+.closeBtn {
+  width: 80px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  background: #e74c3c;
+  border: 0;
+  border-top-right-radius: 10px;
+}
+
+/* content */
+.content {
+  display: flex;
+  justify-content: space-between;
+  height: 46.5%;
+  padding: 0 10px;
+  border-bottom: 2px solid #efefef;
+}
+
+.photoBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 40%;
+}
+
+.photo {
+  position: relative;
+  width: 100%;
+  min-height: 70%;
+}
+
+.showName {
+  margin: 0;
+  height: 28px;
+  overflow: hidden;
+}
+
+.link {
+  padding: 15px 5px;
+  margin-top: 10px;
+}
+
+.link a,
+.showImgBtn {
+  display: inline-block;
+  width: 130px;
+  line-height: 30px;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 20px;
+  background: #e74c3c;
+  transition: all 0.2s;
+  margin-right: 30px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.link a:hover,
+.showImgBtn:hover {
+  background: #c0392b;
+}
+
+.showImgBtn {
+  width: 170px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.information {
+  width: 55%;
+  padding: 15px;
+  border-left: 2px solid #efefef;
+}
+
+.bashProperties {
+  position: relative;
+  font-size: 14px;
+  height: 185px;
+  overflow-y: scroll;
+  border-top: 2px solid #efefef;
+}
+
+.tab {
+  margin: 0;
+  width: 100px;
+  line-height: 35px;
+  text-align: center;
+  margin-top: 10px;
+  border: 1px solid #efefef;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  border-bottom: none;
+}
+
+.time {
+  line-height: 35px;
+  width: 70%;
+  font-size: 16px;
+  color: #ffffff;
+  text-align: center;
+  background-color: #e74c3c;
+  border-radius: 5px;
+}
+
+.sizeTable {
+  position: relative;
+  height: 40%;
+}
+
+.sizeImage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sizeImage img {
+  width: 350px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 1000;
+  border-radius: 10px;
+}

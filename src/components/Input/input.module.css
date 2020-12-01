@@ -1,0 +1,42 @@
+.inputBox {
+  height: 70px;
+}
+
+.input {
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.5;
+  display: block;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 6px 10px;
+  border: 1px solid #d9d9d9;
+  color: #000;
+  background-color: #fff;
+  transition: all 0.3s;
+}
+
+.input:hover,
+.input:focus {
+  border-color: #49a9ee;
+}
+
+.input.error {
+  border-width: 1px 1px 1px 10px;
+  border-style: solid;
+  border-color: #bf1650#bf1650#bf1650 #ec5990;
+  border-image: initial;
+  background: rgb(251, 236, 242);
+}
+
+.errorMsg {
+  font-size: 14px;
+  margin: 0;
+  padding: 7px 0;
+  color: #bf1650;
+}
+
+.errorMsg::before {
+  display: inline;
+  content: '⚠ ';
+}
