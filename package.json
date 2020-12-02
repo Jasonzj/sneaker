@@ -30,6 +30,8 @@
     "@types/react-transition-group": "^4.4.0",
     "@typescript-eslint/eslint-plugin": "^4.9.0",
     "@typescript-eslint/parser": "^4.9.0",
+    "conventional-changelog-cli": "^2.1.1",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-jest-dom": "^3.4.0",
@@ -47,7 +49,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -81,5 +84,10 @@
       "yarn test --watchAll=false"
     ]
   },
-  "proxy": "http://localhost:4455"
+  "proxy": "http://localhost:4455",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
