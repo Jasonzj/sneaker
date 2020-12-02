@@ -25,7 +25,7 @@ const PriceTable: React.FC<Props> = ({ sizePrices }) => {
   }
 
   const usSizesArr = Array.from(usSizes).sort((a, b) => +a - +b)
-  const dewuSizeArr = dewu && Object.keys(dewu).sort((a, b) => +a - +b)
+  const dewuSizeArr = Object.keys(dewu).sort((a, b) => +a - +b)
 
   const isMinPriceClassName = (size: string, price: number) => {
     if (!price) return
