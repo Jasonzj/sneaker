@@ -15,7 +15,7 @@ type ConfigType<T> = {
   callback?: () => void
 }
 
-type UseRequireType<T, P> = {
+type UseRequireReturnType<T, P> = {
   response: T
   loading: boolean
   error: boolean
@@ -42,7 +42,7 @@ type UseRequireType<T, P> = {
  *   notification = true, 是否发送Message
  *   loadingInitialState = true, loading初始状态
  * }
- * @returns {UseRequireType<T, P>}
+ * @returns {UseRequireReturnType<T, P>}
  */
 const useRequire = <T, P>({
   apiLoader,
@@ -54,7 +54,7 @@ const useRequire = <T, P>({
   cleanEffect = false,
   notification = true,
   loadingInitialState = true,
-}: ConfigType<T>): UseRequireType<T, P> => {
+}: ConfigType<T>): UseRequireReturnType<T, P> => {
   const currentApiLoader = useRef<ApiLoaderType | null>(null)
   const currentDisabled = useRef<boolean>(disabled)
   const [loading, setLoading] = useState(loadingInitialState)
