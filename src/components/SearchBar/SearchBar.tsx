@@ -3,6 +3,7 @@ import { useHistory, useRouteMatch } from 'react-router-dom'
 
 // hooks
 import useRequire from '../../hooks/useRequire'
+import useFormBind from '../../hooks/useFormBind'
 
 // components
 import SearchSuggestion from '../SearchSuggestion'
@@ -23,8 +24,8 @@ const SearchBar: React.FC = () => {
   const history = useHistory()
   const match: MathchType = useRouteMatch({ path: '/search/:siteName/:key', exact: true })
 
-  const [suggestionValue, setSuggestionValue] = useState(interfaceName.dewu)
-  const [interfaceValue, setInterfaceValue] = useState(defaultInterface)
+  const [suggestionBind, suggestionValue] = useFormBind(interfaceName.dewu)
+  const [interfaceBind, interfaceValue, setInterfaceValue] = useFormBind(defaultInterface)
   const [searchKeyWord, setSearchKeyWord] = useState('')
   const [focus, setFocus] = useState(false)
 
@@ -40,14 +41,6 @@ const SearchBar: React.FC = () => {
     notification: false,
     disabled: !searchKeyWord,
   })
-
-  const onSelectInterfaceHandle = useCallback((e: React.FormEvent<HTMLSelectElement>) => {
-    setInterfaceValue(e.currentTarget.value)
-  }, [])
-
-  const onSelectSuggestionHandle = useCallback((e: React.FormEvent<HTMLSelectElement>) => {
-    setSuggestionValue(e.currentTarget.value)
-  }, [])
 
   const onClickSuggestionHandle = useCallback(
     (keyWord: string) => {
@@ -102,19 +95,14 @@ const SearchBar: React.FC = () => {
       <button title='search_button' onClick={submitSearch} className={style.searchButton} />
       <div className={style.selectBox}>
         <span>Search Interface: </span>
-        <select
-          title='search_interface_select'
-          className={style.searchInterface}
-          onChange={onSelectInterfaceHandle}
-          value={interfaceValue}
-        >
+        <select title='search_interface_select' className={style.searchInterface} {...interfaceBind}>
           <option value={interfaceName.dewu}>Dewu</option>
           <option value={interfaceName.stockx}>StockX</option>
           <option value={interfaceName.goat}>Goat</option>
           <option value={interfaceName.db}>DB</option>
         </select>
         <span>Search Suggestions Interface: </span>
-        <select className={style.searchInterface} onChange={onSelectSuggestionHandle} value={suggestionValue}>
+        <select className={style.searchInterface} {...suggestionBind}>
           <option value={interfaceName.dewu}>Dewu</option>
           <option value={interfaceName.stockx}>StockX</option>
         </select>
