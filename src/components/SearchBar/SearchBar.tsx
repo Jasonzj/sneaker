@@ -1,80 +1,34 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react'
-import { useHistory, useRouteMatch } from 'react-router-dom'
+import React, { useState } from 'react'
 
 // hooks
-import useRequire from '../../hooks/useRequire'
-import useFormBind from '../../hooks/useFormBind'
+import useSearch from './hook'
 
 // components
 import SearchSuggestion from '../SearchSuggestion'
-
-// type
-import { MathchType } from './type'
-import { SearchSuggestionsLoader } from '../../utils/api'
-import { SearchSuggestionHitsType, ApiLoaderType } from '../../utils/global'
 
 // css
 import style from './searchBar.module.css'
 
 // config
 import config from '../../utils/config'
-const { interfaceName, defaultInterface } = config
+const { interfaceName } = config
 
 const SearchBar: React.FC = () => {
-  const history = useHistory()
-  const match: MathchType = useRouteMatch({ path: '/search/:siteName/:key', exact: true })
-
-  const [suggestionBind, suggestionValue] = useFormBind(interfaceName.dewu)
-  const [interfaceBind, interfaceValue, setInterfaceValue] = useFormBind(defaultInterface)
-  const [searchBind, searchKeyWord, setSearchKeyWord] = useFormBind('')
   const [focus, setFocus] = useState(false)
-  const searchInputEl = useRef<HTMLInputElement>(null)
-
-  const apiSearchSuggestionsLoader = useCallback<ApiLoaderType>(
-    (params, cancelToken) => SearchSuggestionsLoader({ suggestionValue, searchKeyWord }, cancelToken),
-    [searchKeyWord, suggestionValue],
-  )
-
-  const { response: hits } = useRequire<SearchSuggestionHitsType, Record<string, string>>({
-    apiLoader: apiSearchSuggestionsLoader,
-    defaultData: [],
-    debounce: true,
-    notification: false,
-    disabled: !searchKeyWord,
-  })
-
-  const onClickSuggestionHandle = useCallback(
-    (keyWord: string) => {
-      setSearchKeyWord(keyWord)
-      history.push(`/search/${interfaceValue}/${keyWord}`)
-    },
-    // eslint-disable-next-line
-    [interfaceValue],
-  )
-
-  const onKeyDownHandle = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    e.key === 'Enter' && submitSearch()
-  }
-
-  const submitSearch = () => {
-    searchKeyWord && history.push(`/search/${interfaceValue}/${searchKeyWord}`)
-    searchInputEl?.current && searchInputEl.current.blur()
-  }
+  const {
+    hits,
+    searchKeyWord,
+    suggestionValue,
+    searchInputEl,
+    searchBind,
+    interfaceBind,
+    suggestionBind,
+    submitSearch,
+    onKeyDownHandle,
+    onClickSuggestionHandle,
+  } = useSearch()
 
   const isHits = Boolean(hits && hits.length)
-
-  useEffect(
-    () => {
-      if (match) {
-        const key = match.params.key
-        const siteName = match.params.siteName
-        setInterfaceValue(siteName)
-        setSearchKeyWord(key)
-      }
-    },
-    // eslint-disable-next-line
-    [],
-  )
 
   return (
     <div className={style.searchBox}>

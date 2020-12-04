@@ -2,13 +2,11 @@ import { useState, FormEvent, useCallback } from 'react'
 
 type HTMLGeneralFormElement = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | HTMLButtonElement
 
-type useFormBindReturnType = [
-  { value: string; onChange: (e: FormEvent<HTMLGeneralFormElement>) => void },
-  string,
-  React.Dispatch<React.SetStateAction<string>>,
-]
+export type BindFormType = { value: string; onChange: (e: FormEvent<HTMLGeneralFormElement>) => void }
 
-const useInput = (initialValue = ''): useFormBindReturnType => {
+type useFormBindReturnType = [BindFormType, string, React.Dispatch<React.SetStateAction<string>>]
+
+const useFormBind = (initialValue = ''): useFormBindReturnType => {
   const [value, setValue] = useState(initialValue)
   const onChange = useCallback((e: FormEvent<HTMLGeneralFormElement>) => {
     setValue(e.currentTarget.value)
@@ -17,4 +15,4 @@ const useInput = (initialValue = ''): useFormBindReturnType => {
   return [{ value, onChange }, value, setValue]
 }
 
-export default useInput
+export default useFormBind
