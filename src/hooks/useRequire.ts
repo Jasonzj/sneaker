@@ -92,7 +92,6 @@ const useRequire = <T, P>({
         debounce && clearTimeout(timer)
 
         // 竞态处理: 如果请求未完成则取消请求
-        if (process.env.NODE_ENV === 'test') return
         source.cancel('Operation canceled by the user')
       }
     },
