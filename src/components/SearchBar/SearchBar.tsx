@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { useHistory, useRouteMatch } from 'react-router-dom'
 
 // hooks
@@ -26,8 +26,9 @@ const SearchBar: React.FC = () => {
 
   const [suggestionBind, suggestionValue] = useFormBind(interfaceName.dewu)
   const [interfaceBind, interfaceValue, setInterfaceValue] = useFormBind(defaultInterface)
-  const [searchKeyWord, setSearchKeyWord] = useState('')
+  const [searchBind, searchKeyWord, setSearchKeyWord] = useFormBind('')
   const [focus, setFocus] = useState(false)
+  const searchInputEl = useRef<HTMLInputElement>(null)
 
   const apiSearchSuggestionsLoader = useCallback<ApiLoaderType>(
     (params, cancelToken) => SearchSuggestionsLoader({ suggestionValue, searchKeyWord }, cancelToken),
@@ -51,18 +52,13 @@ const SearchBar: React.FC = () => {
     [interfaceValue],
   )
 
-  const onSearchInputChangeHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchKeyWord(e.target.value)
-    !focus && setFocus(true)
-  }
-
   const onKeyDownHandle = (e: React.KeyboardEvent<HTMLInputElement>) => {
     e.key === 'Enter' && submitSearch()
   }
 
   const submitSearch = () => {
     searchKeyWord && history.push(`/search/${interfaceValue}/${searchKeyWord}`)
-    focus && setFocus(false)
+    searchInputEl?.current && searchInputEl.current.blur()
   }
 
   const isHits = Boolean(hits && hits.length)
@@ -85,12 +81,12 @@ const SearchBar: React.FC = () => {
       <input
         type='text'
         title='search_input'
-        value={searchKeyWord}
+        ref={searchInputEl}
         onKeyDown={onKeyDownHandle}
         className={style.searchInput}
-        onChange={onSearchInputChangeHandle}
         onFocus={() => setFocus(true)}
         onBlur={() => setFocus(false)}
+        {...searchBind}
       />
       <button title='search_button' onClick={submitSearch} className={style.searchButton} />
       <div className={style.selectBox}>
