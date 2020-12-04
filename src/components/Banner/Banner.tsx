@@ -2,7 +2,7 @@ import React from 'react'
 import style from './banner.module.css'
 
 // components
-import SearchBar from '../SearchBar/'
+import SearchBar from '../SearchBar'
 
 import dewuLogo from '../../images/dewu.png'
 import goatLogo from '../../images/goat.png'

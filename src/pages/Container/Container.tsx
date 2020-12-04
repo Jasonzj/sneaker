@@ -4,7 +4,7 @@ import { CSSTransition, SwitchTransition } from 'react-transition-group'
 
 // components
 import Product from '../Product'
-import NoMatch from '../NoMatch/'
+import NoMatch from '../NoMatch'
 import Header from '../../components/Header'
 import Banner from '../../components/Banner'
 import SignIn from '../SignIn'
