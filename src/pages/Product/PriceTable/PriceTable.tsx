@@ -1,7 +1,7 @@
 import React from 'react'
 import { Props } from './type'
-import { isEmptyObject } from '../../utils/common'
-import NoInfo from '../DataBoundary'
+import { isEmptyObject } from '../../../utils/common'
+import NoInfo from '../../../components/DataBoundary'
 import style from './priceTable.module.css'
 
 enum siteName {

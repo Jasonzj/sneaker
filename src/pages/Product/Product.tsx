@@ -4,8 +4,8 @@ import React from 'react'
 import { Props } from './type'
 
 // components
-import ProductList from '../../components/ProductList'
-import ProductDetail from '../../components/ProductDetail'
+import ProductList from './ProductList'
+import ProductDetail from './ProductDetail'
 
 // css
 import style from './product.module.css'

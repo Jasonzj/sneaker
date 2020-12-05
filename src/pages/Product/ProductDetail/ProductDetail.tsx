@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import Slider from 'react-slick'
 
-import { formatTime } from '../../utils/common'
+import { formatTime } from '../../../utils/common'
 
 // type
 import { Props } from './type'
-import { SizePricesType } from '../../utils/global'
+import { SizePricesType } from '../../../utils/global'
 
 // components
-import PriceTable from '../../components/PriceTable'
-import DataBoundary from '../DataBoundary/DataBoundary'
+import PriceTable from '../PriceTable'
+import DataBoundary from '../../../components/DataBoundary/DataBoundary'
 import Draggable from 'react-draggable'
 
 // css

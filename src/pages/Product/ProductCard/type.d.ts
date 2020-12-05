@@ -1,4 +1,4 @@
-import { ShoeDetailType } from '../../utils/global'
+import { ShoeDetailType } from '../../../utils/global'
 
 export type Props = {
   shoe: ShoeDetailType

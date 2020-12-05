@@ -1,4 +1,4 @@
-import { ShoeDetailsType } from '../../utils/global'
+import { ShoeDetailsType } from '../../../utils/global'
 
 export type Props = {
   error: boolean

@@ -10,7 +10,7 @@ import SearchSuggestion from '../SearchSuggestion'
 import style from './searchBar.module.css'
 
 // config
-import config from '../../utils/config'
+import config from '../../../utils/config'
 const { interfaceName } = config
 
 const SearchBar: React.FC = () => {

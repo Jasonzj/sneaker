@@ -1,17 +1,17 @@
-import { useEffect, useCallback, RefObject, useRef } from 'react'
+import { useEffect, useCallback, useRef } from 'react'
 import { useHistory, useRouteMatch } from 'react-router-dom'
 
 // hooks api
-import useFormBind from '../../hooks/useFormBind'
-import useRequire from '../../hooks/useRequire'
-import { SearchSuggestionsLoader } from '../../utils/api'
+import useFormBind from '../../../hooks/useFormBind'
+import useRequire from '../../../hooks/useRequire'
+import { SearchSuggestionsLoader } from '../../../utils/api'
 
 // type
-import { ApiLoaderType, SearchSuggestionHitsType } from '../../utils/global'
+import { ApiLoaderType, SearchSuggestionHitsType } from '../../../utils/global'
 import { MathchType, useSearchReturnType } from './type'
 
 // config
-import config from '../../utils/config'
+import config from '../../../utils/config'
 const { interfaceName, defaultInterface } = config
 
 const useSearch = (): useSearchReturnType => {

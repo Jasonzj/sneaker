@@ -6,10 +6,10 @@ import User from '../User'
 
 // css
 import style from './header.module.css'
-import logo from '../../images/logo.png'
+import logo from '../../../images/logo.png'
 
 // config
-import config from '../../utils/config'
+import config from '../../../utils/config'
 const { title } = config
 
 const Header: React.FC = () => (

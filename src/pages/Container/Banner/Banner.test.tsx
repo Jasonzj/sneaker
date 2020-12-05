@@ -1,7 +1,7 @@
 import React from 'react'
-import { render, screen } from '../../tests/routerRender'
+import { render, screen } from '../../../tests/routerRender'
 import Banner from './Banner'
-import config from '../../utils/config'
+import config from '../../../utils/config'
 const { bannerText } = config
 
 test('should display bannerText', () => {

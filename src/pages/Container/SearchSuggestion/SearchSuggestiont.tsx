@@ -1,7 +1,7 @@
 import React from 'react'
 import { Props } from './type'
 import style from './searchSuggestion.module.css'
-import config from '../../utils/config'
+import config from '../../../utils/config'
 
 const { interfaceName } = config
 

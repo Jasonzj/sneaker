@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import user from '@testing-library/user-event'
 import ProductDetail from './ProductDetail'
 import { props, props2 } from './test.mock'
-import { formatTime } from '../../utils/common'
+import { formatTime } from '../../../utils/common'
 
 test('number of slider img should correct ', () => {
   render(<ProductDetail {...props} />)

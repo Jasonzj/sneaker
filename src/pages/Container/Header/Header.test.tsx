@@ -1,7 +1,7 @@
 import React from 'react'
-import { render, screen } from '../../tests/routerRender'
+import { render, screen } from '../../../tests/routerRender'
 import Header from './Header'
-import config from '../../utils/config'
+import config from '../../../utils/config'
 const { title } = config
 
 test('should display text Sneakers App', () => {

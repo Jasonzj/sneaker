@@ -5,8 +5,8 @@ import { CSSTransition, SwitchTransition } from 'react-transition-group'
 // components
 import Product from '../Product'
 import NoMatch from '../NoMatch'
-import Header from '../../components/Header'
-import Banner from '../../components/Banner'
+import Header from './Header'
+import Banner from './Banner'
 import SignIn from '../SignIn'
 import SignUp from '../SignUp'
 
@@ -25,7 +25,7 @@ const Container: React.FC = () => {
     exact: true,
   })
 
-  if (match && openPages && openPages.includes(match.path)) {
+  if (match && openPages?.includes(match.path)) {
     return (
       <SwitchTransition mode='out-in'>
         <CSSTransition key={match.path} timeout={1000} in classNames='sign-ani'>

@@ -4,7 +4,7 @@ import user from '@testing-library/user-event'
 import SearchBar from './SearchBar'
 import { Router } from 'react-router-dom'
 import { createHashHistory } from 'history'
-import config from '../../utils/config'
+import config from '../../../utils/config'
 
 const { interfaceName, defaultInterface } = config
 

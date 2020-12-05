@@ -5,7 +5,7 @@ import { Props } from './type'
 
 // component
 import ProductCard from '../ProductCard'
-import DataBoundary from '../DataBoundary'
+import DataBoundary from '../../../components/DataBoundary'
 
 // css
 import style from './productList.module.css'
