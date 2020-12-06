@@ -25,7 +25,11 @@ export const MessageContainer: React.FC = () => {
   }
 
   add = (notice: NoticeType) => {
-    // if (process.env.NODE_ENV === 'test') return
+    // 筛选重复消息
+    const isRepeat = notices.some((item) => item.text === notice.text)
+
+    if (isRepeat) return
+
     setNotices((prevNotices) => [...prevNotices, notice])
 
     setTimeout(() => {
