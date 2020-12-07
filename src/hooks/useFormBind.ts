@@ -1,4 +1,4 @@
-import { useState, FormEvent, useCallback } from 'react'
+import { useState, FormEvent } from 'react'
 
 type HTMLGeneralFormElement = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | HTMLButtonElement
 
@@ -8,9 +8,10 @@ type useFormBindReturnType = [BindFormType, string, React.Dispatch<React.SetStat
 
 const useFormBind = (initialValue = ''): useFormBindReturnType => {
   const [value, setValue] = useState(initialValue)
-  const onChange = useCallback((e: FormEvent<HTMLGeneralFormElement>) => {
+
+  const onChange = (e: FormEvent<HTMLGeneralFormElement>) => {
     setValue(e.currentTarget.value)
-  }, [])
+  }
 
   return [{ value, onChange }, value, setValue]
 }
