@@ -1,8 +1,9 @@
-import { useState, useCallback, useRef } from 'react'
+import { useState, useCallback } from 'react'
 import { searchJumpScroll } from '../../utils/common'
 
 // api hooks
 import useRequire from '../../hooks/useRequire'
+import useLastestState from '../../hooks/useLastestState'
 import {
   FollowingDetailListsLoader,
   FollowingListsLoader,
@@ -25,7 +26,6 @@ export const useShoeLists = ({
   isTrendingPage,
   isFollowingPage,
 }: useShoeListsParamsType): useShoeListsReturnType => {
-  const currentShoeLists = useRef<ShoeDetailsType>([])
   const [isShow, setIsShow] = useState(false)
 
   const apiProductListsLoader = useCallback<ApiLoaderType>(
@@ -57,22 +57,24 @@ export const useShoeLists = ({
     disabled: isShow === false,
   })
 
+  const lastestShoeLists = useLastestState<ShoeDetailsType>(shoeLists)
+
   const onOpenHandle = useCallback(
     async (i: number) => {
       setIsShow(true)
-      const curShoe = currentShoeLists.current[i]
+      const curShoe = lastestShoeLists.current[i]
       curIndex = i
 
       if (curShoe.sizePrices && curShoe.images?.length) return setDetailLoading(false)
 
       const result = await run({ styleId: curShoe.styleID })
 
-      currentShoeLists.current[i] = {
+      lastestShoeLists.current[i] = {
         ...curShoe,
         ...result,
       }
 
-      setShoeLists([...currentShoeLists.current])
+      setShoeLists([...lastestShoeLists.current])
     },
     // eslint-disable-next-line
     [],
@@ -81,9 +83,6 @@ export const useShoeLists = ({
   const onCloseHandle = useCallback(() => {
     setIsShow(false)
   }, [])
-
-  // 保存最新值，避免deps依赖
-  currentShoeLists.current = shoeLists
 
   return {
     isShow,

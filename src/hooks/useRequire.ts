@@ -1,7 +1,8 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { ApiLoaderType } from '../utils/global'
 import message from '../components/Message'
 import axios, { CancelToken as CancelTokenType } from 'axios'
+import useLastestState from './useLastestState'
 
 type ConfigType<T> = {
   apiLoader: ApiLoaderType
@@ -55,22 +56,20 @@ const useRequire = <T, P>({
   notification = true,
   loadingInitialState = true,
 }: ConfigType<T>): UseRequireReturnType<T, P> => {
-  const currentApiLoader = useRef<ApiLoaderType | null>(null)
-  const currentDisabled = useRef<boolean>(disabled)
   const [loading, setLoading] = useState(loadingInitialState)
   const [response, setResponse] = useState(defaultData)
   const [error, setError] = useState(false)
   const [isDBSearch, setIsDBSearch] = useState<boolean | undefined>(false)
 
+  // 竞态处理，只适用副作用请求模式
+  const currentApiLoader = useLastestState<ApiLoaderType>(apiLoader)
   // 禁用处理，保存最新值用于中途中断
-  currentDisabled.current = disabled
+  const currentDisabled = useLastestState<boolean>(disabled)
 
   useEffect(
     () => {
       let timer: NodeJS.Timeout
-      // 竞态处理，只适用副作用请求模式
       const source = axios.CancelToken.source()
-      currentApiLoader.current = apiLoader
 
       // 禁用
       if (disabled) return
