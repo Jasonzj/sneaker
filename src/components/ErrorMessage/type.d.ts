@@ -1,8 +1,8 @@
 import { ReactElement } from 'react'
-import { DeepMap, FieldError } from 'react-hook-form'
+import { UseFormMethods } from 'react-hook-form'
 
 export type Props = {
-  error: DeepMap<Record<string, any>, FieldError>
+  errors: UseFormMethods['errors']
   name: string
   render: (message: string) => ReactElement
 }

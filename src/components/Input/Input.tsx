@@ -16,7 +16,7 @@ const Input: React.FC<Props> = ({ type, name, register, rules, errors, placehold
       })}
     />
     <ErrorMessage
-      error={errors}
+      errors={errors}
       name={name}
       render={(message) => <p className={style.errorMsg}>{message}</p>}
     />
