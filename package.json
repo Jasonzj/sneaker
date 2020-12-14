@@ -50,6 +50,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "lint": "tsc --project ./tsconfig.json --noEmit && eslint src --ext .js,.jsx,.ts,.tsx",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "eslintConfig": {
@@ -69,7 +70,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged && npm run lint"
     }
   },
   "lint-staged": {
