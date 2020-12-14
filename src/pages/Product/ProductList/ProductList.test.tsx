@@ -5,7 +5,7 @@ import { props, props2 } from './test.mock'
 
 test('should render shoeLists', () => {
   render(<ProductList {...props} />)
-  expect(screen.getAllByTestId('product_card')).toHaveLength(1)
+  expect(screen.getByTestId('product_card')).toBeInTheDocument()
 })
 
 test('should error display errorMsg', () => {
