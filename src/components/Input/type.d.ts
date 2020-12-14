@@ -1,5 +1,5 @@
 import React from 'react'
-import { DeepMap, FieldError, ValidationRules } from 'react-hook-form'
+import { DeepMap, FieldError } from 'react-hook-form'
 
 export type RefReturn =
   | string
@@ -12,7 +12,7 @@ export type Props = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputE
   type: string
   name: string
   placeholder: string
-  rules: ValidationRules
-  register: (rules: ValidationRules) => RefReturn
+  rules: Record<string, any>
+  register: (rules: Record<string, any>) => RefReturn
   errors: DeepMap<Record<string, unknown>, FieldError>
 }
