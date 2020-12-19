@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should take a snapshot 1`] = `
+exports[`should correct display loading text acording to props isShowText 1`] = `
 <DocumentFragment>
   <div
     class="loader"
@@ -18,6 +18,24 @@ exports[`should take a snapshot 1`] = `
       >
         LOADING
       </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should correct display loading text acording to props isShowText 2`] = `
+<DocumentFragment>
+  <div
+    class="loader hidden"
+    style=""
+    title="loader"
+  >
+    <div
+      class="warpper"
+    >
+      <div
+        class="inner"
+      />
     </div>
   </div>
 </DocumentFragment>

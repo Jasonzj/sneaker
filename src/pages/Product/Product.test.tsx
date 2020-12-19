@@ -8,30 +8,23 @@ import config from '../../utils/config'
 const { interfaceName } = config
 
 const setup = () => {
-  const { unmount } = render(<Container />)
+  const { unmount, asFragment } = render(<Container />)
 
   const Search_Title = screen.getByTitle('search_title')
   const Search_Input = screen.getByTitle('search_input')
   const Search_Button = screen.getByTitle('search_button')
   const Search_Select = screen.getByTitle('search_interface_select')
 
-  return { unmount, Search_Title, Search_Input, Search_Button, Search_Select }
+  return { unmount, asFragment, Search_Title, Search_Input, Search_Button, Search_Select }
 }
 
-test('should take a snapshot', async () => {
-  const { asFragment } = render(<Container />)
-
-  await screen.findByTestId('product_card')
-
-  expect(asFragment()).toMatchSnapshot()
-})
-
 test('should display Trending(dewu) in first', async () => {
-  const { Search_Title } = setup()
+  const { asFragment, Search_Title } = setup()
 
   await screen.findByTestId('product_card')
 
   expect(Search_Title).toHaveTextContent('Trending(dewu)')
+  expect(asFragment()).toMatchSnapshot()
 })
 
 test('keyword empty not allow search', async () => {
@@ -44,7 +37,7 @@ test('keyword empty not allow search', async () => {
 })
 
 test('title should display keyword after search', async () => {
-  const { Search_Title, Search_Input, Search_Button, Search_Select } = setup()
+  const { asFragment, Search_Title, Search_Input, Search_Button, Search_Select } = setup()
 
   user.type(Search_Input, 'Air')
   user.selectOptions(Search_Select, interfaceName.goat)
@@ -53,10 +46,11 @@ test('title should display keyword after search', async () => {
   await screen.findByTestId('product_card')
 
   expect(Search_Title).toHaveTextContent('Search goat for (Air)')
+  expect(asFragment()).toMatchSnapshot()
 })
 
 test('select onChange should search again', async () => {
-  const { Search_Title, Search_Button, Search_Select } = setup()
+  const { asFragment, Search_Title, Search_Button, Search_Select } = setup()
 
   user.selectOptions(Search_Select, interfaceName.stockx)
   user.click(Search_Button)
@@ -64,10 +58,11 @@ test('select onChange should search again', async () => {
   await screen.findByTestId('product_card')
 
   expect(Search_Title).toHaveTextContent('Search stockx for (Air)')
+  expect(asFragment()).toMatchSnapshot()
 })
 
 test('keyword onChange should search again', async () => {
-  const { Search_Title, Search_Button, Search_Input } = setup()
+  const { asFragment, Search_Title, Search_Button, Search_Input } = setup()
 
   user.clear(Search_Input)
   user.type(Search_Input, 'Nike')
@@ -76,22 +71,25 @@ test('keyword onChange should search again', async () => {
   await screen.findByTestId('product_card')
 
   expect(Search_Title).toHaveTextContent('Search stockx for (Nike)')
+  expect(asFragment()).toMatchSnapshot()
 })
 
 test('trending button onClick should jump correct', async () => {
-  const { Search_Title } = setup()
+  const { asFragment, Search_Title } = setup()
 
   user.click(screen.getByText('Goat Trending'))
 
   await screen.findByTestId('product_card')
 
   expect(screen.getByTitle('search_title')).toHaveTextContent('Trending(goat)')
+  expect(asFragment()).toMatchSnapshot()
 
   user.click(screen.getByText('Dewu Trending'))
 
   await screen.findByTestId('product_card')
 
   expect(Search_Title).toHaveTextContent('Trending(dewu)')
+  expect(asFragment()).toMatchSnapshot()
 })
 
 test('should handle server error', async () => {
@@ -101,9 +99,10 @@ test('should handle server error', async () => {
     }),
   )
 
-  setup()
+  const { asFragment } = setup()
 
   expect(await screen.findByText('Search Fail!')).toBeInTheDocument()
+  expect(asFragment()).toMatchSnapshot()
 
   server.use(
     rest.get('/api/v1/trending/dewu', (req, res, ctx) => {
@@ -115,9 +114,10 @@ test('should handle server error', async () => {
   user.click(screen.getByText('Dewu Trending'))
 
   expect(await screen.findByText('Search Fail!')).toBeInTheDocument()
+  expect(asFragment()).toMatchSnapshot()
 })
 
-test('should correct show productDetail Model', async () => {
+test('should show correctly productDetail Model', async () => {
   setup()
 
   user.click(await screen.findByTestId('product_card'))
@@ -125,12 +125,13 @@ test('should correct show productDetail Model', async () => {
   expect(await screen.findByText('US Size')).toBeInTheDocument()
 })
 
-test('should correct show following button', async () => {
-  const { unmount } = setup()
+test('should show correctly following button', async () => {
+  const { unmount, asFragment } = setup()
 
   user.click(await screen.findByTestId('product_card'))
 
   expect(await screen.findByText('unfollow')).toBeInTheDocument()
+  expect(asFragment()).toMatchSnapshot()
 
   server.use(
     rest.get('/api/v1/user/following', (req, res, ctx) => {
@@ -139,11 +140,12 @@ test('should correct show following button', async () => {
   )
 
   unmount()
-  setup()
+  const { asFragment: asFragment2 } = setup()
 
   user.click(await screen.findByTestId('product_card'))
 
   expect(await screen.findByText('follow')).toBeInTheDocument()
+  expect(asFragment2()).toMatchSnapshot()
 
   // prevent tests leaking
   await screen.findByText('Show Size Chart')
