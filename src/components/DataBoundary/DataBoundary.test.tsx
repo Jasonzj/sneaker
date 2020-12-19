@@ -9,7 +9,7 @@ const props = {
   },
 }
 
-test('should take a snapshot', async () => {
+test('should take a snapshot', () => {
   const { asFragment } = render(
     <DataBoundary {...props}>
       <div>test</div>

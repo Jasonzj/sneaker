@@ -8,7 +8,7 @@ const props: Props = {
   loading: false,
 }
 
-test('should take a snapshot', async () => {
+test('should take a snapshot', () => {
   const { asFragment } = render(<Button {...props} />)
 
   expect(asFragment()).toMatchSnapshot()
