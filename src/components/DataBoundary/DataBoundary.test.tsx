@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import DataBoundary from './DataBoundary'
+import DataBoundary from './'
 
 const props = {
   error: false,

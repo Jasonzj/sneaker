@@ -1,7 +1,7 @@
 import React from 'react'
 import user from '@testing-library/user-event'
 import { render, screen } from '../../tests/routerRender'
-import Container from '../Container/Container'
+import Container from '../Container/'
 import { rest, server } from '../../tests/testSever'
 import { product_error } from '../../tests/test.mock'
 import config from '../../utils/config'
