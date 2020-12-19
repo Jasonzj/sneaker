@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should take a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="loader"
+    title="loader"
+  >
+    <div
+      class="warpper"
+    >
+      <div
+        class="inner"
+      />
+    </div>
+  </div>
+  <div>
+    test
+  </div>
+</DocumentFragment>
+`;
