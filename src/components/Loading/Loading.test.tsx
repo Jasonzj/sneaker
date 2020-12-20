@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import Loading from './Loading'
+import Loading from './'
 
 const props_true = {
   spinning: true,
@@ -14,29 +14,26 @@ const props_false = {
 }
 
 const setup = () => {
-  const { rerender } = render(<Loading {...props_true} />)
+  const { rerender, asFragment } = render(<Loading {...props_true} />)
   const loader = screen.getByTitle('loader')
 
   return {
     loader,
     rerender,
+    asFragment,
   }
 }
 
-test('should take a snapshot', async () => {
-  const { asFragment } = render(<Loading {...props_true} />)
-
-  expect(asFragment()).toMatchSnapshot()
-})
-
 test('should correct display loading text acording to props isShowText', () => {
-  const { rerender } = setup()
+  const { rerender, asFragment } = setup()
 
   expect(screen.getByText('LOADING')).toBeInTheDocument()
+  expect(asFragment()).toMatchSnapshot()
 
   rerender(<Loading {...props_false} />)
 
   expect(screen.queryByText('LOADING')).not.toBeInTheDocument()
+  expect(asFragment()).toMatchSnapshot()
 })
 
 test('should display specified backGroundColor', () => {

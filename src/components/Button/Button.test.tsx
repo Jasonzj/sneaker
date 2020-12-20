@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import Button from './Button'
+import Button from './'
 import { Props } from './type'
 
 const props: Props = {
@@ -8,30 +8,26 @@ const props: Props = {
   loading: false,
 }
 
-test('should take a snapshot', async () => {
+test('should render correctly text', () => {
   const { asFragment } = render(<Button {...props} />)
 
+  expect(screen.getByText('Login In')).toBeInTheDocument()
   expect(asFragment()).toMatchSnapshot()
 })
 
-test('should correct display text', () => {
-  render(<Button {...props} />)
-
-  expect(screen.getByText('Login In')).toBeInTheDocument()
-})
-
-test('should correct display type', () => {
+test('should render correctly type', () => {
   render(<Button {...props} />)
 
   expect(screen.getByRole('button')).toHaveProperty('type', 'submit')
 })
 
-test('should correct display loading status', () => {
-  const { rerender } = render(<Button {...props} />)
+test('should render correctly loading status', () => {
+  const { rerender, asFragment } = render(<Button {...props} />)
 
   expect(screen.queryByText(/Loading/i)).not.toBeInTheDocument()
 
   rerender(<Button {...props} loading={true} />)
 
   expect(screen.getByText(/Loading/i)).toBeInTheDocument()
+  expect(asFragment()).toMatchSnapshot()
 })

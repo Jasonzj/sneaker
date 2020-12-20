@@ -1,6 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should take a snapshot 1`] = `
+exports[`should render correctly loading status 1`] = `
+<DocumentFragment>
+  <button
+    class="button"
+    disabled=""
+    type="submit"
+  >
+    <div
+      class="content"
+    >
+      Loading...
+    </div>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`should render correctly text 1`] = `
 <DocumentFragment>
   <button
     class="button"

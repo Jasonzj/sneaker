@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly error info and children 1`] = `
+<DocumentFragment>
+  <div
+    class="loader"
+    title="loader"
+  >
+    <div
+      class="warpper"
+    >
+      <div
+        class="inner"
+      />
+    </div>
+  </div>
+  <div>
+    test
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should render correctly error info and children 2`] = `
+<DocumentFragment>
+  <div
+    class="loader"
+    title="loader"
+  >
+    <div
+      class="warpper"
+    >
+      <div
+        class="inner"
+      />
+    </div>
+  </div>
+  <div>
+    Search Fail!
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should render correctly loading status 1`] = `
+<DocumentFragment>
+  <div
+    class="loader"
+    title="loader"
+  >
+    <div
+      class="warpper"
+    >
+      <div
+        class="inner"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should render correctly loading status 2`] = `<DocumentFragment />`;

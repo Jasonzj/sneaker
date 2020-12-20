@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly className 1`] = `
+<DocumentFragment>
+  <div
+    class="inputBox"
+  >
+    <input
+      class="input error"
+      name="username"
+      placeholder="username"
+      type="text"
+    />
+    <p
+      class="errorMsg"
+    >
+      error
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should render correctly placeholder and type 1`] = `
+<DocumentFragment>
+  <div
+    class="inputBox"
+  >
+    <input
+      class="input"
+      name="username"
+      placeholder="username"
+      type="text"
+    />
+  </div>
+</DocumentFragment>
+`;
