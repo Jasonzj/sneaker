@@ -50,7 +50,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "tsc --project ./tsconfig.json --noEmit && eslint src --ext .js,.jsx,.ts,.tsx",
+    "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "npm run lint -- --fix",
+    "lint:types": "tsc --project ./tsconfig.json --noEmit",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "eslintConfig": {
@@ -70,13 +72,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && npm run lint"
+      "pre-commit": "npm run lint:types && lint-staged"
     }
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
       "prettier --write",
-      "eslint --fix"
+      "npm run lint:fix"
     ],
     "src/**/*.css": [
       "prettier --write"
