@@ -2,6 +2,8 @@
 
 一个基于 React、Typescript 构建的球鞋比价网站，对比鞋子在 dewu, stockx, goat 三个网站的价格
 
+[在线地址](http://www.sneakerapp.tk/)
+
 ## API
 
 [node-sneaker](https://github.com/Jasonzj/node-sneaker)
@@ -28,8 +30,8 @@
 ## 使用
 
 ```shell
-yarn
-yarn start
+$ yarn
+$ yarn start
 ```
 
 ## 截图
