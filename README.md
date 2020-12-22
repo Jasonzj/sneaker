@@ -34,6 +34,13 @@ $ yarn
 $ yarn start
 ```
 
+## Docker 容器运行
+
+```shell
+$ docker pull jasonzza/sneaker
+$ docker run -d -p 8000:80 jasonzza/sneaker
+```
+
 ## 截图
 
 <img src="https://github.com/Jasonzj/sneaker/blob/main/screenshots/demo.gif" width=800 align=left>
