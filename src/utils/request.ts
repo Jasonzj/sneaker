@@ -27,13 +27,16 @@ request.interceptors.response.use(
   },
   function (error: AxiosError) {
     if (error.response?.status === 401) {
-      message.error('Login information is invalid, please login again!')
+      const token = window.localStorage.getItem('token')
+      token && message.error('Login information is invalid, please login again!')
       window.localStorage.removeItem('token')
       history.push('/sign_in')
     }
+
     if (error?.code === 'ECONNABORTED' && error.message.includes('timeout')) {
       message.error('Request Timeout!')
     }
+
     return Promise.reject(error)
   },
 )
