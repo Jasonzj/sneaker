@@ -7,7 +7,7 @@ const history = createHashHistory()
 
 const request = axios.create({
   baseURL: `${config.apiPrefix}`,
-  timeout: 1000 * 30,
+  timeout: 1000 * 60,
 })
 
 request.interceptors.request.use(
