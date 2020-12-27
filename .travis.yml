@@ -1,10 +1,12 @@
-sudo: true
-language: bash
+language: node_js
 services:
   - docker
 branches:
   only:
     - main
+node_js:
+  - 15
+cache: yarn
 addons:
   ssh_known_hosts: $HOST_IP
 
@@ -13,7 +15,11 @@ before_install:
     -in id_rsa_deploy.enc -out ~/.ssh/id_rsa -d
   - chmod 600 ~/.ssh/id_rsa
 
+install:
+  - yarn
+
 script:
+  - yarn test
   - docker build -t jasonzza/sneaker:latest -f Dockerfile .
 
 after_success:
