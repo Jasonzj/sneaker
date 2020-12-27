@@ -1,0 +1,8 @@
+version: '3.7'
+
+services:
+  sneaker:
+    image: jasonzza/sneaker
+    restart: always
+    ports:
+      - 8000:80
