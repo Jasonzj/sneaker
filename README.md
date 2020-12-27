@@ -39,10 +39,16 @@ $ yarn start
 
 ## Docker 容器运行
 
+### docker
 ```shell
 $ docker pull jasonzza/sneaker
-$ docker run -d -p 8000:80 jasonzza/sneaker
+$ docker run -dp 8000:80 jasonzza/sneaker
 ```
+### docker-compose
+```shell
+$ docker-compose up -d
+```
+
 
 ## 截图
 
