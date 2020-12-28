@@ -24,7 +24,7 @@ const setup = () => {
   }
 }
 
-test('should correct display loading text acording to props isShowText', () => {
+test('should display correctly loading text acording to props isShowText', () => {
   const { rerender, asFragment } = setup()
 
   expect(screen.getByText('LOADING')).toBeInTheDocument()
@@ -46,7 +46,7 @@ test('should display specified backGroundColor', () => {
   expect(loader).toHaveStyle('background-color: ')
 })
 
-test('should correct display or hidden acording to props spinning', () => {
+test('should display correctly or hidden acording to props spinning', () => {
   const { rerender, loader } = setup()
 
   expect(loader).not.toHaveClass('hidden')

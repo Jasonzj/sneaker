@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should correct display loading text acording to props isShowText 1`] = `
+exports[`should display correctly loading text acording to props isShowText 1`] = `
 <DocumentFragment>
   <div
     class="loader"
@@ -23,7 +23,7 @@ exports[`should correct display loading text acording to props isShowText 1`] = 
 </DocumentFragment>
 `;
 
-exports[`should correct display loading text acording to props isShowText 2`] = `
+exports[`should display correctly loading text acording to props isShowText 2`] = `
 <DocumentFragment>
   <div
     class="loader hidden"
