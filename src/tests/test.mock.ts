@@ -175,3 +175,21 @@ export const suggestions_error = {
   success: false,
   data: [],
 }
+
+export const login_default = {
+  success: true,
+  msg: 'Login Success',
+  data: {
+    username: 'admin2',
+    token:
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMiIsImlkIjoiNWZjN2FmYjRhZmQ5N2M4ODllMjBjNGU0IiwiaWF0IjoxNjA2OTIyMjI1LCJleHAiOjE2MDc1MjcwMjV9.WT9Yzo0LKBPyzRSs1CF4KyPriUvVICoNgHXRXTiiGow',
+  },
+}
+
+export const login_error = {
+  success: false,
+  msg: 'username or passwoad is wrong',
+  err: {
+    message: 'username or passwoad is wrong',
+  },
+}

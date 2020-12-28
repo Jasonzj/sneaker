@@ -1,0 +1,698 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should handle correctly login 1`] = `
+<DocumentFragment>
+  <div
+    class="App"
+  >
+    <header
+      class="header"
+    >
+      <div
+        class="logoBox"
+      >
+        <h1>
+          Sneakers App
+        </h1>
+        <img
+          alt="logo"
+          class="logo"
+          src="logo.png"
+        />
+      </div>
+      <nav
+        class="nav"
+      >
+        <a
+          href="#/trending/dewu"
+        >
+          Dewu Trending
+        </a>
+        <a
+          href="#/trending/goat"
+        >
+          Goat Trending
+        </a>
+        <div
+          class="main"
+        >
+          <div
+            class="content"
+          >
+            <div
+              class="avatar"
+            >
+              <img
+                src="https://api.prodless.com/avatar.png"
+              />
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div
+      class="banner"
+    >
+      <div
+        class="introduce"
+      >
+        Search for Shoes and Integration Price For All Size
+      </div>
+      <div
+        class="searchBox"
+      >
+        <input
+          class="searchInput"
+          title="search_input"
+          type="text"
+          value=""
+        />
+        <button
+          class="searchButton"
+          title="search_button"
+        />
+        <div
+          class="selectBox"
+        >
+          <span>
+            Search Interface: 
+          </span>
+          <select
+            class="searchInterface"
+            title="search_interface_select"
+          >
+            <option
+              value="dewu"
+            >
+              Dewu
+            </option>
+            <option
+              value="stockx"
+            >
+              StockX
+            </option>
+            <option
+              value="goat"
+            >
+              Goat
+            </option>
+            <option
+              value="db"
+            >
+              DB
+            </option>
+          </select>
+          <span>
+            Search Suggestions Interface: 
+          </span>
+          <select
+            class="searchInterface"
+          >
+            <option
+              value="dewu"
+            >
+              Dewu
+            </option>
+            <option
+              value="stockx"
+            >
+              StockX
+            </option>
+          </select>
+        </div>
+        <div
+          class="searchSuggestion"
+        />
+      </div>
+      <div
+        class="iconBar"
+      >
+        <img
+          alt="goat"
+          class="logo"
+          src="goat.png"
+        />
+        <img
+          alt="dewu"
+          class="logo"
+          src="dewu.png"
+        />
+        <img
+          alt="stockx"
+          class="logo"
+          src="stockx.png"
+        />
+      </div>
+    </div>
+    <div
+      class="container"
+    >
+      <div
+        class="header"
+      >
+        <h1
+          class="title"
+          title="search_title"
+        >
+          Trending(dewu)
+        </h1>
+      </div>
+      <div
+        class="box"
+      >
+        <div
+          class="loader hidden"
+          title="loader"
+        >
+          <div
+            class="warpper"
+          >
+            <div
+              class="inner"
+            />
+            <div
+              class="text"
+            >
+              LOADING
+            </div>
+          </div>
+        </div>
+        <div
+          class="card"
+          data-testid="product_card"
+        >
+          <img
+            alt="Air Jordan 1 Mid Shattered Backboard 扣碎篮板 篮球鞋"
+            src="https://cdn.poizon.com/temp/Fn20HZPjmCnQk_VCNJ9C2HRg0xP5"
+          />
+          <div
+            class="shoeName"
+          >
+            Air Jordan 1 Mid Shattered Backboard 扣碎篮板 篮球鞋
+          </div>
+          <div
+            class="price"
+          >
+            $109
+          </div>
+          <div
+            class="brand"
+          >
+            stockx
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should handle correctly login 2`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <div
+      class="main"
+    >
+      <div
+        class="title"
+      >
+        <a
+          class="active"
+          href="#/sign_in"
+        >
+          Sign In
+        </a>
+        <b>
+          ·
+        </b>
+        <a
+          href="#/sign_up"
+        >
+          Sign Up
+        </a>
+      </div>
+      <form
+        class="form"
+      >
+        <div
+          class="inputBox"
+        >
+          <input
+            class="input"
+            name="username"
+            placeholder="username"
+            type="text"
+          />
+        </div>
+        <div
+          class="inputBox"
+        >
+          <input
+            class="input"
+            name="password"
+            placeholder="password"
+            type="password"
+          />
+        </div>
+        <button
+          class="button"
+          type="submit"
+        >
+          <div
+            class="content"
+          >
+            Login In
+          </div>
+        </button>
+      </form>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should render correctly class with page changed 1`] = `
+<DocumentFragment>
+  <div
+    class="container sign-ani-enter sign-ani-enter-active"
+  >
+    <div
+      class="main"
+    >
+      <div
+        class="title"
+      >
+        <a
+          href="#/sign_in"
+        >
+          Sign In
+        </a>
+        <b>
+          ·
+        </b>
+        <a
+          class="active"
+          href="#/sign_up"
+        >
+          Sign Up
+        </a>
+      </div>
+      <form
+        class="form"
+      >
+        <div
+          class="inputBox"
+        >
+          <input
+            class="input"
+            name="username"
+            placeholder="username"
+            type="text"
+          />
+        </div>
+        <div
+          class="inputBox"
+        >
+          <input
+            class="input"
+            name="password"
+            placeholder="password"
+            type="password"
+          />
+        </div>
+        <button
+          class="button"
+          type="submit"
+        >
+          <div
+            class="content"
+          >
+            Register
+          </div>
+        </button>
+      </form>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should render correctly rules of the error 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <div
+      class="main"
+    >
+      <div
+        class="title"
+      >
+        <a
+          class="active"
+          href="#/sign_in"
+        >
+          Sign In
+        </a>
+        <b>
+          ·
+        </b>
+        <a
+          href="#/sign_up"
+        >
+          Sign Up
+        </a>
+      </div>
+      <form
+        class="form"
+      >
+        <div
+          class="inputBox"
+        >
+          <input
+            class="input error"
+            name="username"
+            placeholder="username"
+            type="text"
+          />
+          <p
+            class="errorMsg"
+          >
+            The minimum length cannot exceed 5
+          </p>
+        </div>
+        <div
+          class="inputBox"
+        >
+          <input
+            class="input error"
+            name="password"
+            placeholder="password"
+            type="password"
+          />
+          <p
+            class="errorMsg"
+          >
+            The minimum length cannot exceed 5
+          </p>
+        </div>
+        <button
+          class="button"
+          type="submit"
+        >
+          <div
+            class="content"
+          >
+            Login In
+          </div>
+        </button>
+      </form>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should render correctly rules of the error 2`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <div
+      class="main"
+    >
+      <div
+        class="title"
+      >
+        <a
+          class="active"
+          href="#/sign_in"
+        >
+          Sign In
+        </a>
+        <b>
+          ·
+        </b>
+        <a
+          href="#/sign_up"
+        >
+          Sign Up
+        </a>
+      </div>
+      <form
+        class="form"
+      >
+        <div
+          class="inputBox"
+        >
+          <input
+            class="input"
+            name="username"
+            placeholder="username"
+            type="text"
+          />
+        </div>
+        <div
+          class="inputBox"
+        >
+          <input
+            class="input error"
+            name="password"
+            placeholder="password"
+            type="password"
+          />
+          <p
+            class="errorMsg"
+          >
+            At least one number and letter and no special characters
+          </p>
+        </div>
+        <button
+          class="button"
+          type="submit"
+        >
+          <div
+            class="content"
+          >
+            Login In
+          </div>
+        </button>
+      </form>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should render correctly rules of the error 3`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <div
+      class="main"
+    >
+      <div
+        class="title"
+      >
+        <a
+          class="active"
+          href="#/sign_in"
+        >
+          Sign In
+        </a>
+        <b>
+          ·
+        </b>
+        <a
+          href="#/sign_up"
+        >
+          Sign Up
+        </a>
+      </div>
+      <form
+        class="form"
+      >
+        <div
+          class="inputBox"
+        >
+          <input
+            class="input error"
+            name="username"
+            placeholder="username"
+            type="text"
+          />
+          <p
+            class="errorMsg"
+          >
+            The maximum length cannot exceed 20
+          </p>
+        </div>
+        <div
+          class="inputBox"
+        >
+          <input
+            class="input error"
+            name="password"
+            placeholder="password"
+            type="password"
+          />
+          <p
+            class="errorMsg"
+          >
+            The maximum length cannot exceed 20
+          </p>
+        </div>
+        <button
+          class="button"
+          type="submit"
+        >
+          <div
+            class="content"
+          >
+            Login In
+          </div>
+        </button>
+      </form>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should render correctly rules of the error 4`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <div
+      class="main"
+    >
+      <div
+        class="title"
+      >
+        <a
+          class="active"
+          href="#/sign_in"
+        >
+          Sign In
+        </a>
+        <b>
+          ·
+        </b>
+        <a
+          href="#/sign_up"
+        >
+          Sign Up
+        </a>
+      </div>
+      <form
+        class="form"
+      >
+        <div
+          class="inputBox"
+        >
+          <input
+            class="input error"
+            name="username"
+            placeholder="username"
+            type="text"
+          />
+          <p
+            class="errorMsg"
+          >
+            This is required.
+          </p>
+        </div>
+        <div
+          class="inputBox"
+        >
+          <input
+            class="input error"
+            name="password"
+            placeholder="password"
+            type="password"
+          />
+          <p
+            class="errorMsg"
+          >
+            This is required.
+          </p>
+        </div>
+        <button
+          class="button"
+          type="submit"
+        >
+          <div
+            class="content"
+          >
+            Login In
+          </div>
+        </button>
+      </form>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should render correctly rules of the error 5`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <div
+      class="main"
+    >
+      <div
+        class="title"
+      >
+        <a
+          class="active"
+          href="#/sign_in"
+        >
+          Sign In
+        </a>
+        <b>
+          ·
+        </b>
+        <a
+          href="#/sign_up"
+        >
+          Sign Up
+        </a>
+      </div>
+      <form
+        class="form"
+      >
+        <div
+          class="inputBox"
+        >
+          <input
+            class="input"
+            name="username"
+            placeholder="username"
+            type="text"
+          />
+        </div>
+        <div
+          class="inputBox"
+        >
+          <input
+            class="input"
+            name="password"
+            placeholder="password"
+            type="password"
+          />
+        </div>
+        <button
+          class="button"
+          type="submit"
+        >
+          <div
+            class="content"
+          >
+            Login In
+          </div>
+        </button>
+      </form>
+    </div>
+  </div>
+</DocumentFragment>
+`;
