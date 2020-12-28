@@ -1,6 +1,12 @@
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'
-import { following_default, prices_default, product_default, suggestions_error } from './test.mock'
+import {
+  following_default,
+  login_default,
+  prices_default,
+  product_default,
+  suggestions_error,
+} from './test.mock'
 
 const server = setupServer(
   rest.get('/api/v1/trending/dewu', (req, res, ctx) => {
@@ -26,6 +32,9 @@ const server = setupServer(
   }),
   rest.get('/api/v1/suggestions', (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(suggestions_error))
+  }),
+  rest.post('/api/v1/login', (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(login_default))
   }),
 )
 

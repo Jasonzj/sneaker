@@ -3,7 +3,7 @@ import user from '@testing-library/user-event'
 import { render, screen } from '../../tests/routerRender'
 import Container from '../Container/'
 import { rest, server } from '../../tests/testSever'
-import { product_error } from '../../tests/test.mock'
+import { following_noAuth, product_error } from '../../tests/test.mock'
 import config from '../../utils/config'
 const { interfaceName } = config
 
@@ -149,6 +149,22 @@ test('should show correctly following button', async () => {
 
   // prevent tests leaking
   await screen.findByText('Show Size Chart')
+})
+
+test('should handle correctly authentication errors', async () => {
+  window.localStorage.setItem('token', 'token')
+  server.use(
+    rest.get('/api/v1/user/following', (req, res, ctx) => {
+      return res(ctx.status(401), ctx.json(following_noAuth))
+    }),
+  )
+
+  const { asFragment } = setup()
+
+  expect(await screen.findByRole('button', { name: 'Login In' })).toBeInTheDocument()
+  expect(screen.getByText('Login information is invalid, please login again!')).toBeInTheDocument()
+  expect(window.localStorage.getItem('token')).toBeNull()
+  expect(asFragment()).toMatchSnapshot()
 })
 
 // test('should handle server error in productDeatil', async () => {

@@ -635,6 +635,71 @@ exports[`should display Trending(dewu) in first 1`] = `
 </DocumentFragment>
 `;
 
+exports[`should handle correctly authentication errors 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <div
+      class="main"
+    >
+      <div
+        class="title"
+      >
+        <a
+          class="active"
+          href="#/sign_in"
+        >
+          Sign In
+        </a>
+        <b>
+          ·
+        </b>
+        <a
+          href="#/sign_up"
+        >
+          Sign Up
+        </a>
+      </div>
+      <form
+        class="form"
+      >
+        <div
+          class="inputBox"
+        >
+          <input
+            class="input"
+            name="username"
+            placeholder="username"
+            type="text"
+          />
+        </div>
+        <div
+          class="inputBox"
+        >
+          <input
+            class="input"
+            name="password"
+            placeholder="password"
+            type="password"
+          />
+        </div>
+        <button
+          class="button"
+          type="submit"
+        >
+          <div
+            class="content"
+          >
+            Login In
+          </div>
+        </button>
+      </form>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`should handle server error 1`] = `
 <DocumentFragment>
   <div
