@@ -171,6 +171,14 @@ export const following_default = {
   data: ['554724-058'],
 }
 
+export const following_noAuth = {
+  success: false,
+  msg: 'Authentication Error',
+  err: {
+    message: 'Authentication Error',
+  },
+}
+
 export const suggestions_error = {
   success: false,
   data: [],
