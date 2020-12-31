@@ -72,13 +72,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint:types && lint-staged"
+      "pre-commit": "yarn lint:types && lint-staged"
     }
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
       "prettier --write",
-      "npm run lint:fix"
+      "yarn lint:fix"
     ],
     "src/**/*.css": [
       "prettier --write"

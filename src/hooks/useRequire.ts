@@ -113,8 +113,12 @@ const useRequire = <T, P>({
       // if (currentApiLoader.current !== apiLoader) return //竞态处理
       if (currentDisabled.current) return //禁用处理
 
-      notification && resultData.msg && message.success(resultData.msg)
-      resultData.success ? setResponse(resultData.data) : setError(true)
+      if (resultData.success) {
+        notification && resultData.msg && message.success(resultData.msg)
+        setResponse(resultData.data)
+      } else {
+        setError(true)
+      }
 
       setIsDBSearch(resultData.isDBSearch)
       setLoading(false)
