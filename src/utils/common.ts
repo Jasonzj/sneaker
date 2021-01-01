@@ -15,8 +15,8 @@ export const formatTime = (time: number): string => {
  * @param {(Record<string, unknown> | undefined)} o
  * @returns {boolean}
  */
-export const isEmptyObject = (o: Record<string, unknown> | undefined): boolean => {
-  if (o === undefined) return true
+export const isEmptyObject = (o: Record<string, unknown> | undefined | null): boolean => {
+  if (!o) return true
   return Object.keys(o).length === 0
 }
 
