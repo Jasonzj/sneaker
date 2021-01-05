@@ -1,4 +1,3 @@
-import React from 'react'
 import { render, screen } from '@testing-library/react'
 import PriceTable from './PriceTable'
 import { props, props2, props3, usSizesArr, dewuSizesArr } from './test.mock'

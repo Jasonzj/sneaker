@@ -1,6 +1,5 @@
-import React from 'react'
 import { render, screen } from '../../../tests/routerRender'
-import Banner from './Banner'
+import Banner from './'
 import config from '../../../utils/config'
 const { bannerText } = config
 

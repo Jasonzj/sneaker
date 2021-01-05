@@ -1,4 +1,3 @@
-import React from 'react'
 import { render, screen } from '@testing-library/react'
 import ProductList from './ProductList'
 import { props, props2 } from './test.mock'

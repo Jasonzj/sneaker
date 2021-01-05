@@ -1,4 +1,3 @@
-import React from 'react'
 import user from '@testing-library/user-event'
 import { render, screen } from '../../tests/routerRender'
 import Container from '../Container/'
