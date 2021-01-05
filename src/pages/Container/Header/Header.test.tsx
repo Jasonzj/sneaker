@@ -1,4 +1,3 @@
-import React from 'react'
 import { render, screen } from '../../../tests/routerRender'
 import Header from './Header'
 import config from '../../../utils/config'

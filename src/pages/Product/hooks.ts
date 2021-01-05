@@ -47,7 +47,7 @@ export const useShoeLists = ({
     callback: searchJumpScroll,
   })
 
-  const { loading: detailLoading, setLoading: setDetailLoading, run } = useRequire<
+  const { loading: detailLoading, setLoading: setDetailLoading, run: getPrice } = useRequire<
     ShoeDetailType,
     ProductDetailReqType
   >({
@@ -67,7 +67,7 @@ export const useShoeLists = ({
 
       if (curShoe.sizePrices && curShoe.images?.length) return setDetailLoading(false)
 
-      const result = await run({ styleId: curShoe.styleID })
+      const result = await getPrice({ styleId: curShoe.styleID })
 
       lastestShoeLists.current[i] = {
         ...curShoe,
