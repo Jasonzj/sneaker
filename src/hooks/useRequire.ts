@@ -4,7 +4,7 @@ import message from '../components/Message'
 import axios, { CancelToken as CancelTokenType } from 'axios'
 import useLastestState from './useLastestState'
 
-type ConfigType<T> = {
+export type ConfigType<T> = {
   apiLoader: ApiLoaderType
   defaultData: T
   manual?: boolean

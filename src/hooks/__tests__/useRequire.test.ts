@@ -1,7 +1,7 @@
-import { renderHook, act } from '@testing-library/react-hooks'
-import useRequire from '../useRequire'
+import { renderHook } from '@testing-library/react-hooks'
+import useRequire, { ConfigType } from '../useRequire'
 import { TrendingListsLoader } from '../../utils/api'
-import { ApiLoaderType } from '../../utils/global'
+import { ApiLoaderType, ShoeDetailsType } from '../../utils/global'
 import { product_default } from '../../tests/test.mock'
 
 beforeEach(() => {
@@ -13,16 +13,22 @@ const apiProductListsLoaderDewu: ApiLoaderType = (params, cancelToken) =>
 const apiProductListsLoaderGoat: ApiLoaderType = (params, cancelToken) =>
   TrendingListsLoader({ siteName: 'goat' }, cancelToken)
 
-test('useRequire should be auto run', async () => {
-  const callback = jest.fn()
-  const { result, waitForNextUpdate, unmount } = renderHook(() =>
+const setup = (option: ConfigType<ShoeDetailsType>) =>
+  renderHook((o: Record<string, any> = {}) =>
     useRequire({
-      apiLoader: apiProductListsLoaderDewu,
-      defaultData: [],
-      cleanEffect: true,
-      callback,
+      ...option,
+      ...o,
     }),
   )
+
+test('useRequire should be auto run', async () => {
+  const callback = jest.fn()
+  const { result, waitForNextUpdate, unmount } = setup({
+    apiLoader: apiProductListsLoaderDewu,
+    defaultData: [],
+    cleanEffect: true,
+    callback,
+  })
 
   expect(result.current.loading).toBe(true)
   expect(result.current.error).toBe(false)
@@ -39,13 +45,11 @@ test('useRequire should be auto run', async () => {
 })
 
 test('useRequire should be manually triggered', async () => {
-  const { result, waitForNextUpdate, unmount } = renderHook(() =>
-    useRequire({
-      apiLoader: apiProductListsLoaderDewu,
-      defaultData: [],
-      manual: true,
-    }),
-  )
+  const { result, waitForNextUpdate, unmount } = setup({
+    apiLoader: apiProductListsLoaderDewu,
+    defaultData: [],
+    manual: true,
+  })
 
   expect(result.current.loading).toBe(true)
   expect(result.current.error).toBe(false)
@@ -64,15 +68,12 @@ test('useRequire should be manually triggered', async () => {
 
 test('useRequire debounce should work', async () => {
   const callback = jest.fn()
-  const { waitForNextUpdate, unmount, rerender } = renderHook((o: Record<string, any> = {}) =>
-    useRequire({
-      apiLoader: apiProductListsLoaderDewu,
-      defaultData: [],
-      debounce: true,
-      callback,
-      ...o,
-    }),
-  )
+  const { waitForNextUpdate, unmount, rerender } = setup({
+    apiLoader: apiProductListsLoaderDewu,
+    defaultData: [],
+    debounce: true,
+    callback,
+  })
 
   jest.advanceTimersByTime(100)
   rerender({ apiLoader: apiProductListsLoaderGoat })
@@ -97,14 +98,11 @@ test('useRequire debounce should work', async () => {
 })
 
 test('useRequire cleanEffect should work', async () => {
-  const { result, waitForNextUpdate, unmount, rerender } = renderHook((o: Record<string, any> = {}) =>
-    useRequire({
-      apiLoader: apiProductListsLoaderDewu,
-      defaultData: [],
-      cleanEffect: true,
-      ...o,
-    }),
-  )
+  const { result, waitForNextUpdate, unmount, rerender } = setup({
+    apiLoader: apiProductListsLoaderDewu,
+    defaultData: [],
+    cleanEffect: true,
+  })
 
   jest.runAllTimers()
   await waitForNextUpdate()
@@ -119,6 +117,25 @@ test('useRequire cleanEffect should work', async () => {
   await waitForNextUpdate()
 
   expect(result.current.response).toEqual(product_default.data)
+
+  unmount()
+})
+
+test('useRequire disabled should work', async () => {
+  const callback = jest.fn()
+  const { result, unmount, rerender } = setup({
+    apiLoader: apiProductListsLoaderDewu,
+    defaultData: [],
+    disabled: false,
+    manual: true,
+    callback,
+  })
+
+  result.current.run(0)
+  rerender({ apiLoader: apiProductListsLoaderDewu, disabled: true })
+  jest.runAllTimers()
+
+  expect(callback).toHaveBeenCalledTimes(0)
 
   unmount()
 })
