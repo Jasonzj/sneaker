@@ -12,7 +12,7 @@ import {
   TrendingListsLoader,
   unFollowLoader,
   FollowLoader,
-} from '../../utils/api'
+} from '../../apis'
 
 // type
 import { ApiLoaderType, ProductDetailReqType, ShoeDetailsType, ShoeDetailType } from '../../types/global'

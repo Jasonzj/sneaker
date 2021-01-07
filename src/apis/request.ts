@@ -1,7 +1,7 @@
 import axios, { AxiosError } from 'axios'
 import { createHashHistory } from 'history'
 import message from '../components/Message'
-import config from './config'
+import config from '../utils/config'
 
 const history = createHashHistory()
 

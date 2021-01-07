@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks'
 import useRequire, { ConfigType } from '../useRequire'
-import { TrendingListsLoader } from '../../utils/api'
+import { TrendingListsLoader } from '../../apis'
 import { ApiLoaderType, ShoeDetailsType } from '../../types/global'
 import { product_default } from '../../tests/test.mock'
 
