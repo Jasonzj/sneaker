@@ -4,10 +4,10 @@ import { useHistory, useRouteMatch } from 'react-router-dom'
 // hooks api
 import useFormBind from '../../../hooks/useFormBind'
 import useRequire from '../../../hooks/useRequire'
-import { SearchSuggestionsLoader } from '../../../utils/api'
+import { SearchSuggestionsLoader } from '../../../apis'
 
 // type
-import { ApiLoaderType, SearchSuggestionHitsType } from '../../../utils/global'
+import { ApiLoaderType, SearchSuggestionHitsType } from '../../../types/global'
 import { MathchType, useSearchReturnType } from './type'
 
 // config

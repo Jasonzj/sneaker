@@ -1,4 +1,4 @@
-import { SearchSuggestionHitsType } from '../../../utils/global'
+import { SearchSuggestionHitsType } from '../../../types/global'
 
 export type Props = {
   hits: SearchSuggestionHitsType

@@ -5,7 +5,7 @@ import { formatTime } from '../../../utils/common'
 
 // type
 import { Props } from './type'
-import { SizePricesType } from '../../../utils/global'
+import { SizePricesType } from '../../../types/global'
 
 // components
 import PriceTable from '../PriceTable'

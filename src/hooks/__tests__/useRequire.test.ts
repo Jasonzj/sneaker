@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks'
 import useRequire, { ConfigType } from '../useRequire'
-import { TrendingListsLoader } from '../../utils/api'
-import { ApiLoaderType, ShoeDetailsType } from '../../utils/global'
+import { TrendingListsLoader } from '../../apis'
+import { ApiLoaderType, ShoeDetailsType } from '../../types/global'
 import { product_default } from '../../tests/test.mock'
 
 beforeEach(() => {

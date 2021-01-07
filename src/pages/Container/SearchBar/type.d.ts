@@ -1,6 +1,6 @@
 import { match } from 'react-router-dom'
 import { BindFormType } from '../../../hooks/useFormBind'
-import { SearchSuggestionHitsType } from '../../../utils/global'
+import { SearchSuggestionHitsType } from '../../../types/global'
 import { RefObject } from 'react'
 
 export type MathchType = match<{ key: string; siteName: string }> | null

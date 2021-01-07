@@ -1,6 +1,6 @@
 import { Method } from 'axios'
 import request from './request'
-import { ApiLoaderType } from './global'
+import { ApiLoaderType } from '../types/global'
 
 enum methods {
   get = 'get',

@@ -14,7 +14,7 @@ import style from '../../styles/sign.module.css'
 
 // api hooks
 import useRequire from '../../hooks/useRequire'
-import { RegisterLoader } from '../../utils/api'
+import { RegisterLoader } from '../../apis'
 
 // config
 import config from '../../utils/config'
