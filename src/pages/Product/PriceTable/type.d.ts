@@ -1,4 +1,4 @@
-import { SizePricesType } from '../../../utils/global'
+import { SizePricesType } from '../../../types/global'
 
 export type Props = {
   sizePrices: SizePricesType

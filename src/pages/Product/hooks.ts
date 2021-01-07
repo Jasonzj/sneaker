@@ -15,7 +15,7 @@ import {
 } from '../../utils/api'
 
 // type
-import { ApiLoaderType, ProductDetailReqType, ShoeDetailsType, ShoeDetailType } from '../../utils/global'
+import { ApiLoaderType, ProductDetailReqType, ShoeDetailsType, ShoeDetailType } from '../../types/global'
 import { useFollowingReturnType, useShoeListsParamsType, useShoeListsReturnType } from './type'
 
 let curIndex = 0

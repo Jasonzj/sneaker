@@ -1,5 +1,5 @@
 import { match } from 'react-router-dom'
-import { ShoeDetailsType } from '../../utils/global'
+import { ShoeDetailsType } from '../../types/global'
 
 export type Props = {
   /** match to use for the get KeyWord */

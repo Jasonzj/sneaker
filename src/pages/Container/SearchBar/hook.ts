@@ -7,7 +7,7 @@ import useRequire from '../../../hooks/useRequire'
 import { SearchSuggestionsLoader } from '../../../utils/api'
 
 // type
-import { ApiLoaderType, SearchSuggestionHitsType } from '../../../utils/global'
+import { ApiLoaderType, SearchSuggestionHitsType } from '../../../types/global'
 import { MathchType, useSearchReturnType } from './type'
 
 // config

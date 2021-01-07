@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { ApiLoaderType } from '../utils/global'
+import { ApiLoaderType } from '../types/global'
 import message from '../components/Message'
 import axios, { CancelToken as CancelTokenType } from 'axios'
 import useLastestState from './useLastestState'
