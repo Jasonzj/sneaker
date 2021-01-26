@@ -2,7 +2,7 @@
 
 一个基于 React、Typescript 构建的球鞋比价网站，对比鞋子在 dewu, stockx, goat 三个网站的价格
 
-[![Build Status](https://travis-ci.org/Jasonzj/sneaker.svg?branch=main)](https://travis-ci.org/Jasonzj/sneaker)
+![Build & Deploy](https://github.com/Jasonzj/sneaker/workflows/Build%20&%20Deploy/badge.svg)
 [![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://github.com/Jasonzj/sneaker/blob/main/LICENSE)
 
 [在线地址](http://www.sneakerapp.tk/)
