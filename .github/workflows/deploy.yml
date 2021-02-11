@@ -1,6 +1,7 @@
 name: Build & Deploy
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -31,6 +32,11 @@ jobs:
 
       - name: Test
         run: yarn test
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
   build-and-push:
     runs-on: ubuntu-latest
