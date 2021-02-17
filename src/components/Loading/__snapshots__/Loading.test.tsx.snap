@@ -8,7 +8,7 @@ exports[`should display correctly loading text acording to props isShowText 1`] 
     title="loader"
   >
     <div
-      class="warpper"
+      class="wrapper"
     >
       <div
         class="inner"
@@ -31,7 +31,7 @@ exports[`should display correctly loading text acording to props isShowText 2`] 
     title="loader"
   >
     <div
-      class="warpper"
+      class="wrapper"
     >
       <div
         class="inner"

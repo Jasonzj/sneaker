@@ -15,7 +15,7 @@
 .loader.fullScreen {
   position: fixed;
 }
-.loader .warpper {
+.loader .wrapper {
   width: 100px;
   height: 100px;
   display: inline-flex;

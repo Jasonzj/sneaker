@@ -13,7 +13,7 @@ const Loading: React.FC<Props> = ({ spinning, isShowText = false, backGroundColo
       style={{ backgroundColor: backGroundColor }}
       title='loader'
     >
-      <div className={style.warpper}>
+      <div className={style.wrapper}>
         <div className={style.inner} />
         {isShowText && <div className={style.text}>LOADING</div>}
       </div>
