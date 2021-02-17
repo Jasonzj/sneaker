@@ -166,7 +166,7 @@ test('should handle correctly authentication errors', async () => {
   expect(asFragment()).toMatchSnapshot()
 })
 
-// test('should handle server error in productDeatil', async () => {
+// test('should handle server error in productDetail', async () => {
 //   server.use(
 //     rest.get('/api/v1/prices/554724-058', (req, res, ctx) => {
 //       return res(ctx.status(500))

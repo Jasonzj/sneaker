@@ -165,7 +165,7 @@ exports[`should handle correctly login 1`] = `
           title="loader"
         >
           <div
-            class="warpper"
+            class="wrapper"
           >
             <div
               class="inner"

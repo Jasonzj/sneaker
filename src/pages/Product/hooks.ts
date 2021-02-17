@@ -3,7 +3,7 @@ import { searchJumpScroll } from '../../utils/common'
 
 // api hooks
 import useRequire from '../../hooks/useRequire'
-import useLastestState from '../../hooks/useLastestState'
+import useLatestState from '../../hooks/useLatestState'
 import {
   FollowingDetailListsLoader,
   FollowingListsLoader,
@@ -57,24 +57,24 @@ export const useShoeLists = ({
     disabled: isShow === false,
   })
 
-  const lastestShoeLists = useLastestState<ShoeDetailsType>(shoeLists)
+  const latestShoeLists = useLatestState<ShoeDetailsType>(shoeLists)
 
   const onOpenHandle = useCallback(
     async (i: number) => {
       setIsShow(true)
-      const curShoe = lastestShoeLists.current[i]
+      const curShoe = latestShoeLists.current[i]
       curIndex = i
 
       if (curShoe.sizePrices && curShoe.images?.length) return setDetailLoading(false)
 
       const result = await getPrice({ styleId: curShoe.styleID })
 
-      lastestShoeLists.current[i] = {
+      latestShoeLists.current[i] = {
         ...curShoe,
         ...result,
       }
 
-      setShoeLists([...lastestShoeLists.current])
+      setShoeLists([...latestShoeLists.current])
     },
     // eslint-disable-next-line
     [],

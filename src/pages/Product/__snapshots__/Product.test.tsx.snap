@@ -172,7 +172,7 @@ exports[`keyword onChange should search again 1`] = `
           title="loader"
         >
           <div
-            class="warpper"
+            class="wrapper"
           >
             <div
               class="inner"
@@ -386,7 +386,7 @@ exports[`select onChange should search again 1`] = `
           title="loader"
         >
           <div
-            class="warpper"
+            class="wrapper"
           >
             <div
               class="inner"
@@ -593,7 +593,7 @@ exports[`should display Trending(dewu) in first 1`] = `
           title="loader"
         >
           <div
-            class="warpper"
+            class="wrapper"
           >
             <div
               class="inner"
@@ -865,7 +865,7 @@ exports[`should handle server error 1`] = `
           title="loader"
         >
           <div
-            class="warpper"
+            class="wrapper"
           >
             <div
               class="inner"
@@ -1053,7 +1053,7 @@ exports[`should handle server error 2`] = `
           title="loader"
         >
           <div
-            class="warpper"
+            class="wrapper"
           >
             <div
               class="inner"
@@ -1241,7 +1241,7 @@ exports[`should show correctly following button 1`] = `
           title="loader"
         >
           <div
-            class="warpper"
+            class="wrapper"
           >
             <div
               class="inner"
@@ -1308,7 +1308,7 @@ exports[`should show correctly following button 1`] = `
                     title="loader"
                   >
                     <div
-                      class="warpper"
+                      class="wrapper"
                     >
                       <div
                         class="inner"
@@ -1398,7 +1398,7 @@ exports[`should show correctly following button 1`] = `
                     title="loader"
                   >
                     <div
-                      class="warpper"
+                      class="wrapper"
                     >
                       <div
                         class="inner"
@@ -1418,7 +1418,7 @@ exports[`should show correctly following button 1`] = `
                 title="loader"
               >
                 <div
-                  class="warpper"
+                  class="wrapper"
                 >
                   <div
                     class="inner"
@@ -1606,7 +1606,7 @@ exports[`should show correctly following button 2`] = `
           title="loader"
         >
           <div
-            class="warpper"
+            class="wrapper"
           >
             <div
               class="inner"
@@ -1673,7 +1673,7 @@ exports[`should show correctly following button 2`] = `
                     title="loader"
                   >
                     <div
-                      class="warpper"
+                      class="wrapper"
                     >
                       <div
                         class="inner"
@@ -1763,7 +1763,7 @@ exports[`should show correctly following button 2`] = `
                     title="loader"
                   >
                     <div
-                      class="warpper"
+                      class="wrapper"
                     >
                       <div
                         class="inner"
@@ -1783,7 +1783,7 @@ exports[`should show correctly following button 2`] = `
                 title="loader"
               >
                 <div
-                  class="warpper"
+                  class="wrapper"
                 >
                   <div
                     class="inner"
@@ -1978,7 +1978,7 @@ exports[`title should display keyword after search 1`] = `
           title="loader"
         >
           <div
-            class="warpper"
+            class="wrapper"
           >
             <div
               class="inner"
@@ -2185,7 +2185,7 @@ exports[`trending button onClick should jump correct 1`] = `
           title="loader"
         >
           <div
-            class="warpper"
+            class="wrapper"
           >
             <div
               class="inner"
@@ -2392,7 +2392,7 @@ exports[`trending button onClick should jump correct 2`] = `
           title="loader"
         >
           <div
-            class="warpper"
+            class="wrapper"
           >
             <div
               class="inner"
