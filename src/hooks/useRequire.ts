@@ -27,6 +27,14 @@ type UseRequireReturnType<T, P> = {
   run: (reqParams: P) => Promise<T | undefined>
 }
 
+// type CurrentReqParamsType = {
+//   current: Record<string, any> | undefined
+// }
+
+// const currentReqParams: CurrentReqParamsType = {
+//   current: undefined,
+// }
+
 /**
  * 请求管理hook
  *
@@ -61,7 +69,9 @@ const useRequire = <T, P>({
   const [error, setError] = useState(false)
   const [isDBSearch, setIsDBSearch] = useState<boolean | undefined>(false)
 
-  // 竞态处理，只适用副作用请求模式
+  // manual级别的竞态处理
+  const currentReqParams = useLatestState<P | undefined>(undefined, true)
+  // (ApiLoader)请求级别的竞态处理，只适用副作用请求模式
   const currentApiLoader = useLatestState<ApiLoaderType>(apiLoader)
   // 禁用处理，保存最新值用于中途中断
   const currentDisabled = useLatestState<boolean>(disabled)
@@ -69,6 +79,7 @@ const useRequire = <T, P>({
   useEffect(
     () => {
       let timer: NodeJS.Timeout
+      // 组件级别的竞态处理
       const source = axios.CancelToken.source()
 
       // 禁用
@@ -90,7 +101,7 @@ const useRequire = <T, P>({
         cleanEffect && setResponse(defaultData)
         debounce && clearTimeout(timer)
 
-        // 竞态处理: 如果请求未完成则取消请求
+        // 组件级别的竞态处理: 组件卸载时如果请求未完成则取消请求
         source.cancel('Operation canceled by the user')
       }
     },
@@ -103,6 +114,7 @@ const useRequire = <T, P>({
   }
 
   const getData = async (reqParams?: P, cancelToken?: CancelTokenType) => {
+    currentReqParams.current = reqParams
     setLoading(true)
     setError(false)
 
@@ -110,8 +122,9 @@ const useRequire = <T, P>({
       const result = await apiLoader<T, P>(reqParams, cancelToken)
       const resultData = result.data
 
-      // if (currentApiLoader.current !== apiLoader) return //竞态处理
-      if (currentDisabled.current) return //禁用处理
+      if (currentReqParams.current !== reqParams) return // manual级别的竞态处理
+      if (currentApiLoader.current !== apiLoader) return // (ApiLoader)请求级别的竞态处理
+      if (currentDisabled.current) return // 禁用处理
 
       if (resultData.success) {
         notification && resultData.msg && message.success(resultData.msg)
@@ -129,7 +142,9 @@ const useRequire = <T, P>({
     } catch (e) {
       if (process.env.NODE_ENV === 'development') console.error(e)
 
-      if (currentApiLoader.current !== apiLoader) return //竞态处理
+      if (currentReqParams.current !== reqParams) return // manual级别的竞态处理
+      if (currentApiLoader.current !== apiLoader) return // (ApiLoader)请求级别的竞态处理
+      if (currentDisabled.current) return // 禁用处理
 
       const response = e.response
 
