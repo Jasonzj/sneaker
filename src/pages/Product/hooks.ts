@@ -3,7 +3,7 @@ import { searchJumpScroll } from '../../utils/common'
 
 // api hooks
 import useRequire from '../../hooks/useRequire'
-import useLatestState from '../../hooks/useLatestState'
+import useRefCallback from '../../hooks/useRefCallback'
 import {
   FollowingDetailListsLoader,
   FollowingListsLoader,
@@ -19,6 +19,7 @@ import { ApiLoaderType, ProductDetailReqType, ShoeDetailsType, ShoeDetailType } 
 import { useFollowingReturnType, useShoeListsParamsType, useShoeListsReturnType } from './type'
 
 let curIndex = 0
+let curStyleId = ''
 
 export const useShoeLists = ({
   key,
@@ -55,30 +56,26 @@ export const useShoeLists = ({
     defaultData: {} as ShoeDetailType,
     manual: true,
     disabled: isShow === false,
+    disabledByFunc: ({ styleId }) => styleId !== curStyleId,
   })
 
-  const latestShoeLists = useLatestState<ShoeDetailsType>(shoeLists)
+  const onOpenHandle = useRefCallback(async (i: number) => {
+    setIsShow(true)
+    const curShoe = shoeLists[i]
+    curStyleId = curShoe.styleID
+    curIndex = i
 
-  const onOpenHandle = useCallback(
-    async (i: number) => {
-      setIsShow(true)
-      const curShoe = latestShoeLists.current[i]
-      curIndex = i
+    if (curShoe.sizePrices && curShoe.images?.length) return setDetailLoading(false)
 
-      if (curShoe.sizePrices && curShoe.images?.length) return setDetailLoading(false)
+    const result = await getPrice({ styleId: curShoe.styleID })
 
-      const result = await getPrice({ styleId: curShoe.styleID })
+    shoeLists[i] = {
+      ...curShoe,
+      ...result,
+    }
 
-      latestShoeLists.current[i] = {
-        ...curShoe,
-        ...result,
-      }
-
-      setShoeLists([...latestShoeLists.current])
-    },
-    // eslint-disable-next-line
-    [],
-  )
+    setShoeLists([...shoeLists])
+  })
 
   const onCloseHandle = useCallback(() => {
     setIsShow(false)
@@ -107,23 +104,17 @@ export const useFollowing = (): useFollowingReturnType => {
     defaultData: [],
   })
 
-  const onFollowHandle = useCallback(
-    (styleId: string, followIndex: number, isFollow: boolean) => {
-      setFollowingLists((lists) => {
-        if (isFollow) {
-          unFollowLoader({ styleId })
-          lists.splice(followIndex, 1)
-          return [...lists]
-        }
+  const onFollowHandle = useRefCallback((styleId: string, followIndex: number, isFollow: boolean) => {
+    if (isFollow) {
+      unFollowLoader({ styleId })
+      followingLists.splice(followIndex, 1)
+    } else {
+      FollowLoader({ styleId })
+      followingLists.push(styleId)
+    }
 
-        FollowLoader({ styleId })
-        lists.push(styleId)
-        return [...lists]
-      })
-    },
-    // eslint-disable-next-line
-    [],
-  )
+    setFollowingLists([...followingLists])
+  })
 
   return [followingLists, onFollowHandle]
 }

@@ -4,12 +4,13 @@ import message from '../components/Message'
 import axios, { CancelToken as CancelTokenType } from 'axios'
 import useLatestState from './useLatestState'
 
-export type ConfigType<T> = {
+export type ConfigType<T, P> = {
   apiLoader: ApiLoaderType
   defaultData: T
   manual?: boolean
   debounce?: boolean
   disabled?: boolean
+  disabledByFunc?: (params: P) => boolean
   cleanEffect?: boolean
   notification?: boolean
   loadingInitialState?: boolean
@@ -57,13 +58,14 @@ const useRequire = <T, P>({
   apiLoader,
   defaultData,
   callback,
+  disabledByFunc,
   manual = false,
   debounce = false,
   disabled = false,
   cleanEffect = false,
   notification = true,
   loadingInitialState = true,
-}: ConfigType<T>): UseRequireReturnType<T, P> => {
+}: ConfigType<T, P>): UseRequireReturnType<T, P> => {
   const [loading, setLoading] = useState(loadingInitialState)
   const [response, setResponse] = useState(defaultData)
   const [error, setError] = useState(false)
@@ -75,6 +77,8 @@ const useRequire = <T, P>({
   const currentApiLoader = useLatestState<ApiLoaderType>(apiLoader)
   // 禁用处理，保存最新值用于中途中断
   const currentDisabled = useLatestState<boolean>(disabled)
+  // 禁用处理，根据函数返回值判断是否禁用
+  const currentDisabledByFunc = useLatestState(disabledByFunc)
 
   useEffect(
     () => {
@@ -125,6 +129,7 @@ const useRequire = <T, P>({
       if (currentReqParams.current !== reqParams) return // manual级别的竞态处理
       if (currentApiLoader.current !== apiLoader) return // (ApiLoader)请求级别的竞态处理
       if (currentDisabled.current) return // 禁用处理
+      if (currentDisabledByFunc.current && reqParams && currentDisabledByFunc.current(reqParams)) return // 禁用处理
 
       if (resultData.success) {
         notification && resultData.msg && message.success(resultData.msg)
@@ -145,6 +150,7 @@ const useRequire = <T, P>({
       if (currentReqParams.current !== reqParams) return // manual级别的竞态处理
       if (currentApiLoader.current !== apiLoader) return // (ApiLoader)请求级别的竞态处理
       if (currentDisabled.current) return // 禁用处理
+      if (currentDisabledByFunc.current && reqParams && currentDisabledByFunc.current(reqParams)) return // 禁用处理
 
       const response = e.response
 

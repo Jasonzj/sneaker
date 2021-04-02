@@ -13,7 +13,7 @@ const apiProductListsLoaderDewu: ApiLoaderType = (params, cancelToken) =>
 const apiProductListsLoaderGoat: ApiLoaderType = (params, cancelToken) =>
   TrendingListsLoader({ siteName: 'goat' }, cancelToken)
 
-const setup = (option: ConfigType<ShoeDetailsType>) =>
+const setup = (option: ConfigType<ShoeDetailsType, number>) =>
   renderHook((o: Record<string, any> = {}) =>
     useRequire({
       ...option,

@@ -6,7 +6,7 @@ const useLatestState = <T>(value: T, once = false): MutableRefObject<T> => {
   useEffect(() => {
     if (once) return
     ref.current = value
-  })
+  }, [value, once])
 
   return ref
 }
